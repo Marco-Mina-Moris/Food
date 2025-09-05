@@ -4,8 +4,8 @@ import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
 import 'package:food/features/my_orders/presentation/views/widgets/custom_button.dart';
 
-class CustomItemCard extends StatelessWidget {
-  const CustomItemCard({super.key});
+class CustomHistoryItemCard extends StatelessWidget {
+  const CustomHistoryItemCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +16,22 @@ class CustomItemCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
 
         children: [
-          Text(
-            'Food',
-            style: AppTextStyle.sen400Style14.copyWith(
-              color: AppColors.VeryDarkBlue,
-            ),
+          Row(
+            children: [
+              Text(
+                'Food',
+                style: AppTextStyle.sen400Style14.copyWith(
+                  color: AppColors.veryDarkBlue,
+                ),
+              ),
+              SizedBox(width: 28),
+              Text(
+                AppStrings.completed,
+                style: AppTextStyle.sen700Style14.copyWith(
+                  color: AppColors.green,
+                ),
+              ),
+            ],
           ),
           SizedBox(height: 10),
           Divider(endIndent: 15, indent: 15, color: Color(0xffEEF2F6)),
@@ -65,14 +76,28 @@ class CustomItemCard extends StatelessWidget {
                         child: Row(
                           children: [
                             Text('\$30.25', style: AppTextStyle.sen700Style14),
-                            SizedBox(width: 14),
+                            SizedBox(width: 10),
                             VerticalDivider(
-                              color: AppColors.LavenderGray,
+                              color: AppColors.lavenderGray,
                               thickness: 1,
                               //width: 20, // space around divider
                               // end pad
                             ),
-                            SizedBox(width: 14),
+                            SizedBox(width: 10),
+                            Text(
+                              '29 Jan, 12:30',
+                              style: AppTextStyle.sen400Style12,
+                            ),
+                            SizedBox(width: 8),
+                            Container(
+                              width: 5,
+                              height: 5,
+                              decoration: BoxDecoration(
+                                color: AppColors.darkGray,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            SizedBox(width: 8),
                             Text(
                               '03 Items',
                               style: AppTextStyle.sen400Style12.copyWith(
@@ -93,14 +118,14 @@ class CustomItemCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomButton(
-                color: AppColors.orange,
+                color: Colors.white,
                 text: AppStrings.trackOrder,
-                colorText: Colors.white,
+                colorText: AppColors.orange,
               ),
               CustomButton(
-                color: Colors.white,
-                text: AppStrings.cancel,
-                colorText: AppColors.orange,
+                color: AppColors.orange,
+                text: AppStrings.reOrder,
+                colorText: Colors.white,
               ),
             ],
           ),
