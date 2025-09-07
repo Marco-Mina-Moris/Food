@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food/core/utils/app_strings.dart';
 import 'package:food/features/my_orders/presentation/views/widgets/build_history_tab_widget.dart';
 import 'package:food/features/my_orders/presentation/views/widgets/build_ongoing_tab_widget.dart';
 import 'package:food/features/my_orders/presentation/views/widgets/custom_app_bar_widget.dart';
@@ -35,7 +36,7 @@ class _MyOrdersViewState extends State<MyOrdersView>
         child: Column(
           children: [
             SizedBox(height: 50),
-            CustomAppBarWidget(),
+            CustomAppBarWidget(title: AppStrings.myoreders),
             SizedBox(height: 24),
             CustomTabBarWidget(tabController: _tabController),
             SizedBox(height: 16),

@@ -6,8 +6,8 @@ import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
-  const CustomAppBarWidget({super.key});
-
+  const CustomAppBarWidget({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,7 +23,7 @@ class CustomAppBarWidget extends StatelessWidget {
           ),
         ),
         Spacer(flex: 1),
-        Text(AppStrings.myoreders, style: AppTextStyle.sen400Style17),
+        Text(title, style: AppTextStyle.sen400Style17),
         Spacer(flex: 8),
         CircleAvatar(
           backgroundColor: AppColors.lightGrayishBlue,
