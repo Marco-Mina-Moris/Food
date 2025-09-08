@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food/core/utils/app_assets.dart';
@@ -10,13 +9,16 @@ class CustomListTileWidget extends StatelessWidget {
     super.key,
     required this.leadinimgae,
     required this.titleText,
+    this.ontap,
   });
   final String leadinimgae;
   final String titleText;
+  final void Function()? ontap;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: ontap,
       leading: SvgPicture.asset(leadinimgae, width: 40, height: 40),
       title: Text(
         titleText,

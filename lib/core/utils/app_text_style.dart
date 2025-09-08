@@ -5,7 +5,7 @@ abstract class AppTextStyle {
   static final sen400Style17 = TextStyle(
         fontFamily: 'Sen',
         fontSize: 17,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w500,
         color: AppColors.veryDarkBlue,
       ),
       sen400Style14 = TextStyle(

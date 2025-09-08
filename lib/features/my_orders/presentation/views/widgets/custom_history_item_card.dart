@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
-import 'package:food/features/my_orders/presentation/views/widgets/custom_button.dart';
+import 'package:food/features/my_orders/presentation/views/widgets/custom_button_widget.dart';
 
 class CustomHistoryItemCard extends StatelessWidget {
   const CustomHistoryItemCard({super.key});
@@ -24,7 +24,7 @@ class CustomHistoryItemCard extends StatelessWidget {
                   color: AppColors.veryDarkBlue,
                 ),
               ),
-              SizedBox(width: 28),
+              const SizedBox(width: 28),
               Text(
                 AppStrings.completed,
                 style: AppTextStyle.sen700Style14.copyWith(
@@ -33,9 +33,9 @@ class CustomHistoryItemCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 10),
-          Divider(endIndent: 15, indent: 15, color: Color(0xffEEF2F6)),
-          SizedBox(height: 16),
+          const SizedBox(height: 10),
+          const Divider(endIndent: 15, indent: 15, color: Color(0xffEEF2F6)),
+          const SizedBox(height: 16),
           Row(
             children: [
               Container(
@@ -71,24 +71,24 @@ class CustomHistoryItemCard extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       IntrinsicHeight(
                         child: Row(
                           children: [
                             Text('\$30.25', style: AppTextStyle.sen700Style14),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             VerticalDivider(
                               color: AppColors.lavenderGray,
                               thickness: 1,
                               //width: 20, // space around divider
                               // end pad
                             ),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             Text(
                               '29 Jan, 12:30',
                               style: AppTextStyle.sen400Style12,
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Container(
                               width: 5,
                               height: 5,
@@ -97,7 +97,7 @@ class CustomHistoryItemCard extends StatelessWidget {
                                 shape: BoxShape.circle,
                               ),
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Text(
                               '03 Items',
                               style: AppTextStyle.sen400Style12.copyWith(
@@ -113,16 +113,16 @@ class CustomHistoryItemCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CustomButton(
+              CustomButtonWidget(
                 color: Colors.white,
                 text: AppStrings.trackOrder,
                 colorText: AppColors.orange,
               ),
-              CustomButton(
+              CustomButtonWidget(
                 color: AppColors.orange,
                 text: AppStrings.reOrder,
                 colorText: Colors.white,

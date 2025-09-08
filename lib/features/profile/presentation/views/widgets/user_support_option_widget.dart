@@ -22,12 +22,12 @@ class UserSupportWidget extends StatelessWidget {
               leadinimgae: Assets.assetsImagesFaqs2,
               titleText: AppStrings.fAQs,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             CustomListTileWidget(
               leadinimgae: Assets.assetsImagesUserrevew,
               titleText: AppStrings.userReviews,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             CustomListTileWidget(
               leadinimgae: Assets.assetsImagesSetting,
               titleText: AppStrings.settings,

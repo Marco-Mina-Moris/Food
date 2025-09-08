@@ -24,5 +24,17 @@ abstract class AppStrings {
       phoneNumber = 'Phone Number',
       bio = 'Bio',
       editProfile = 'Edit Profile',
-      edit = 'EDIT';
+      edit = 'EDIT',
+      save = 'Save',
+      addnewaddress = 'Add new address',
+      savelocation = 'Save location',
+      street = 'street',
+      postcode = 'Post code',
+      appartment = 'Appartment',
+      labelas = 'Label as',
+      home = 'Home',
+      work = 'Work',
+      other = 'Other',
+      saveLocation = 'Save location',
+      myAddress = 'My Address';
 }

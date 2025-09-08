@@ -22,17 +22,17 @@ class UserActionsWidget extends StatelessWidget {
               leadinimgae: Assets.assetsImagesCart,
               titleText: AppStrings.cart,
             ),
-            SizedBox(height: 16),
+          const  SizedBox(height: 16),
             CustomListTileWidget(
               leadinimgae: Assets.assetsImagesFav,
               titleText: AppStrings.favourite,
             ),
-            SizedBox(height: 16),
+          const  SizedBox(height: 16),
             CustomListTileWidget(
               leadinimgae: Assets.assetsImagesNotif,
               titleText: AppStrings.notifications,
             ),
-            SizedBox(height: 16),
+          const  SizedBox(height: 16),
             CustomListTileWidget(
               leadinimgae: Assets.assetsImagesPaymethod,
               titleText: AppStrings.paymentMethod,

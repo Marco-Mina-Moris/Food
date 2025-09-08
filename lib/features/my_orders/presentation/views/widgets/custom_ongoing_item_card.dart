@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
-import 'package:food/features/my_orders/presentation/views/widgets/custom_button.dart';
+import 'package:food/features/my_orders/presentation/views/widgets/custom_button_widget.dart';
 
 class CustomOngingItemCard extends StatelessWidget {
   const CustomOngingItemCard({super.key});
@@ -22,9 +22,9 @@ class CustomOngingItemCard extends StatelessWidget {
               color: AppColors.veryDarkBlue,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Divider(endIndent: 15, indent: 15, color: Color(0xffEEF2F6)),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Row(
             children: [
               Container(
@@ -60,7 +60,7 @@ class CustomOngingItemCard extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       IntrinsicHeight(
                         child: Row(
                           children: [
@@ -69,10 +69,8 @@ class CustomOngingItemCard extends StatelessWidget {
                             VerticalDivider(
                               color: AppColors.lavenderGray,
                               thickness: 1,
-                              //width: 20, // space around divider
-                              // end pad
                             ),
-                            SizedBox(width: 14),
+                            const SizedBox(width: 14),
                             Text(
                               '03 Items',
                               style: AppTextStyle.sen400Style12.copyWith(
@@ -88,16 +86,16 @@ class CustomOngingItemCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CustomButton(
+              CustomButtonWidget(
                 color: AppColors.orange,
                 text: AppStrings.trackOrder,
                 colorText: Colors.white,
               ),
-              CustomButton(
+              CustomButtonWidget(
                 color: Colors.white,
                 text: AppStrings.cancel,
                 colorText: AppColors.orange,

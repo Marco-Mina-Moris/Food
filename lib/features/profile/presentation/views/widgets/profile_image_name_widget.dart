@@ -15,7 +15,7 @@ class ProfileImageNameWidget extends StatelessWidget {
           radius: 50,
           backgroundColor: const Color.fromARGB(255, 252, 182, 160),
         ),
-        SizedBox(width: 32),
+       const SizedBox(width: 32),
         Column(
           children: [
             Text(

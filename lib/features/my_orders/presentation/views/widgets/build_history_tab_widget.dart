@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food/features/my_orders/presentation/views/widgets/custom_history_item_card.dart';
-import 'package:food/features/my_orders/presentation/views/widgets/custom_ongoing_item_card.dart';
 
 class BuildHistoryTab extends StatelessWidget {
   const BuildHistoryTab({super.key});
@@ -10,7 +9,9 @@ class BuildHistoryTab extends StatelessWidget {
     return ListView.builder(
       itemCount: 4,
       itemBuilder: (context, index) {
-        return Column(children: [CustomHistoryItemCard(), SizedBox(height: 24)]);
+        return Column(
+          children: [CustomHistoryItemCard(), const SizedBox(height: 24)],
+        );
       },
     );
   }

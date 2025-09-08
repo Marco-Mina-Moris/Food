@@ -9,7 +9,7 @@ class BuildOngoingTab extends StatelessWidget {
     return ListView.builder(
       itemCount: 4,
       itemBuilder: (context, index) {
-        return Column(children: [CustomOngingItemCard(), SizedBox(height: 24)]);
+        return Column(children: [CustomOngingItemCard(),const SizedBox(height: 24)]);
       },
     );
   }

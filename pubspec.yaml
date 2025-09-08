@@ -46,6 +46,7 @@ flutter:
     - family: Sen
       fonts:
         - asset: assets/fonts/sen-regular.otf
+        - asset: assets/fonts/sen-bold.otf
       
 flutter_assets:
   assets_path: assets/images/

@@ -35,11 +35,11 @@ class _MyOrdersViewState extends State<MyOrdersView>
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             CustomAppBarWidget(title: AppStrings.myoreders),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             CustomTabBarWidget(tabController: _tabController),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Expanded(
               child: TabBarView(
                 controller: _tabController,
