@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food/core/routes/app_routes.dart';
+import 'package:food/features/home/home_screen.dart';
 
 void main() {
   runApp(const FoodDeliveryApp());
@@ -12,9 +13,12 @@ class FoodDeliveryApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Food Delivery App',
-      initialRoute: AppRoutes.splash,
-      onGenerateRoute: AppRoutes.generateRoute,
+      // initialRoute: AppRoutes.splash,
+      // onGenerateRoute: AppRoutes.generateRoute,
+      home: HomeScreen(),
     );
+
   }
 }
