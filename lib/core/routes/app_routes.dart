@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:food/feature/auth/view/screens/forgot_password_view.dart';
+import 'package:food/feature/auth/view/screens/login_screen_view.dart';
+import 'package:food/feature/auth/view/screens/permission_screen_view.dart';
+import 'package:food/feature/auth/view/screens/sign_up_screen_view.dart';
+import 'package:food/feature/auth/view/screens/verificaton_screen_view.dart';
+import 'package:food/feature/onboarding/onboarding_screen.dart';
+import 'package:food/feature/splash/splash_screen.dart';
 
 class AppRoutes {
   // User Routes
@@ -8,7 +15,7 @@ class AppRoutes {
   static const String signup = '/signup';
   static const String forgotPassword = '/forgot-password';
   static const String verification = '/verification';
-  static const String resetPassword = '/reset-password';
+  static const String resetPassword = '/permission';
 
   // Home Routes
   static const String homeV1 = '/home-v1';
@@ -58,19 +65,19 @@ class AppRoutes {
     switch (settings.name) {
       // Auth Routes
       case splash:
-      // return _createRoute(const SplashScreen());
+      return _createRoute(const SplashScreen());
       case onboarding:
-      // return _createSlideRoute(const OnboardingScreen());
+      return _createSlideRoute(const OnboardingScreen());
       case login:
-      // return _createRoute(const LoginScreen());
+      return _createRoute(const LoginScreen());
       case signup:
-      // return _createRoute(const SignupScreen());
+      return _createRoute(const SignUpScreen());
       case forgotPassword:
-      // return _createRoute(const ForgotPasswordScreen());
+      return _createRoute(const ForgotPasswordScreen());
       case verification:
-      // return _createRoute(const VerificationScreen());
+      return _createRoute(const VerificationScreen());
       case resetPassword:
-      // return _createRoute(const ResetPasswordScreen());
+      return _createRoute(const PermissionScreen());
 
       // Home Routes
       case homeV1:

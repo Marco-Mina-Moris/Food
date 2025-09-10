@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food/core/constants/assets_constants.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -78,38 +80,41 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         fillColor: Colors.transparent,
         filled: true,
         hintText: widget.hintText,
-        hintStyle: TextStyle(
-          fontSize: 16,
-          // color: AppColor.gray,
-          fontWeight: FontWeight.w500,
+        hintStyle: GoogleFonts.sen(
+          fontSize: 14,
+          color: Color(0xffA0A5BA),
+          fontWeight: FontWeight.w400,
         ),
         errorMaxLines: 4,
         errorStyle: const TextStyle(color: Colors.red),
         prefixIcon: widget.prefixIcon,
         prefix: widget.prefix,
-        suffixIcon: widget.isPassword
-            ? GestureDetector(
-                onTap: _toggleObscureText,
-                child: Icon(
-                  obscureText ? Icons.visibility_off : Icons.visibility,
-                  // color: AppColor.gray,
-                  size: 27,
-                ),
-              )
-            : widget.suffixWidget,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 13, vertical: 14),
-        border: outlineInputBorder(color: Colors.grey, width: 1),
-        enabledBorder: outlineInputBorder(color: Colors.grey, width: 1),
-        focusedBorder: outlineInputBorder(color: Colors.black, width: 1),
+        suffixIcon:
+            widget.isPassword
+                ? GestureDetector(
+                  onTap: _toggleObscureText,
+                  child: Image.asset(
+                    obscureText ? AssetsConstants.eyeOff : AssetsConstants.eye,
+                  ),
+                )
+                : widget.suffixWidget,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 13,
+          vertical: 14,
+        ),
+        border: outlineInputBorder(color: Colors.transparent, width: 1),
+        enabledBorder: outlineInputBorder(color: Color(0xfff0f5fa), width: 1),
+        focusedBorder: outlineInputBorder(color: Color(0xffF0F5FA), width: 1),
         errorBorder: outlineInputBorder(color: Colors.red, width: 1),
         focusedErrorBorder: outlineInputBorder(color: Colors.red, width: 1),
       ),
     );
   }
 
-  OutlineInputBorder outlineInputBorder(
-      {required Color color, required double width}) {
+  OutlineInputBorder outlineInputBorder({
+    required Color color,
+    required double width,
+  }) {
     return OutlineInputBorder(
       borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
       borderSide: BorderSide(color: color, width: width),
