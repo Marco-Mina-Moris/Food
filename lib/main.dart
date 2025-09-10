@@ -12,6 +12,7 @@ class FoodDeliveryApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Food Delivery App',
       initialRoute: AppRoutes.splash,
       onGenerateRoute: AppRoutes.generateRoute,
