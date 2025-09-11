@@ -18,10 +18,12 @@ dependencies:
   google_fonts: ^6.3.1
   toastification: ^3.0.3
   shared_preferences: ^2.5.3
+  flutter_svg: ^2.2.0
   animate_do: ^4.2.0
   smooth_page_indicator: ^1.2.1
   font_awesome_flutter: ^10.9.1
   pinput: ^5.0.2
+
 
 dev_dependencies:
   flutter_test:
@@ -45,4 +47,13 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-
+  fonts:
+    - family: Sen
+      fonts:
+        - asset: assets/fonts/sen-regular.otf
+        - asset: assets/fonts/sen-bold.otf
+      
+flutter_assets:
+  assets_path: assets/images/
+  output_path: lib/core/utils/
+  filename: app_assets.dart
