@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food/core/utils/app_strings.dart';
 import 'package:food/features/my_orders/presentation/views/widgets/build_history_tab_widget.dart';
 import 'package:food/features/my_orders/presentation/views/widgets/build_ongoing_tab_widget.dart';
-import 'package:food/features/my_orders/presentation/views/widgets/custom_app_bar_widget.dart';
+import 'package:food/core/common/widget/custom_app_bar_widget.dart';
 import 'package:food/features/my_orders/presentation/views/widgets/custom_tab_bar_widget.dart';
 
 class MyOrdersView extends StatefulWidget {

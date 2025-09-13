@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
       onPressed: ontap,
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.orange,
-        minimumSize: Size(360, 62),
+        minimumSize: Size(double.infinity, 62),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
             12,

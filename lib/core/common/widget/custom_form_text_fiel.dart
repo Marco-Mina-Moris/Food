@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food/core/utils/app_colors.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -18,6 +19,8 @@ class CustomTextFormField extends StatefulWidget {
     this.focusNode,
     this.borderRadius,
     this.enable = true,
+    this.fillcolor,
+    this.hintststyle, this.fillColor,
   });
   final TextEditingController? controller;
   final bool isPassword;
@@ -31,6 +34,10 @@ class CustomTextFormField extends StatefulWidget {
   final FocusNode? focusNode;
   final BorderRadius? borderRadius;
   final bool? enable;
+
+  final Color? fillcolor;
+  final TextStyle? hintststyle;
+  final Color? fillColor;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -75,30 +82,29 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
       textAlignVertical: TextAlignVertical.center,
       decoration: InputDecoration(
-        fillColor: Colors.transparent,
+        fillColor: widget.fillColor,
         filled: true,
         hintText: widget.hintText,
-        hintStyle: TextStyle(
-          fontSize: 16,
-          // color: AppColor.gray,
-          fontWeight: FontWeight.w500,
-        ),
+        hintStyle: widget.hintststyle,
         errorMaxLines: 4,
         errorStyle: const TextStyle(color: Colors.red),
         prefixIcon: widget.prefixIcon,
         prefix: widget.prefix,
-        suffixIcon: widget.isPassword
-            ? GestureDetector(
-                onTap: _toggleObscureText,
-                child: Icon(
-                  obscureText ? Icons.visibility_off : Icons.visibility,
-                  // color: AppColor.gray,
-                  size: 27,
-                ),
-              )
-            : widget.suffixWidget,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 13, vertical: 14),
+        suffixIcon:
+            widget.isPassword
+                ? GestureDetector(
+                  onTap: _toggleObscureText,
+                  child: Icon(
+                    obscureText ? Icons.visibility_off : Icons.visibility,
+                    // color: AppColor.gray,
+                    size: 27,
+                  ),
+                )
+                : widget.suffixWidget,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 13,
+          vertical: 14,
+        ),
         border: outlineInputBorder(color: Colors.grey, width: 1),
         enabledBorder: outlineInputBorder(color: Colors.grey, width: 1),
         focusedBorder: outlineInputBorder(color: Colors.black, width: 1),
@@ -108,8 +114,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     );
   }
 
-  OutlineInputBorder outlineInputBorder(
-      {required Color color, required double width}) {
+  OutlineInputBorder outlineInputBorder({
+    required Color color,
+    required double width,
+  }) {
     return OutlineInputBorder(
       borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
       borderSide: BorderSide(color: color, width: width),

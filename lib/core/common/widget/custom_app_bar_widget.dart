@@ -9,21 +9,27 @@ class CustomAppBarWidget extends StatelessWidget {
     super.key,
     required this.title,
     this.trailing,
-    this.ontap, // Optional trailing widget
+    this.ontap,
+    this.backColor,
+    this.leadingImage, this.textstyle, // Optional trailing widget
   });
 
   final String title;
   final Widget? trailing; // Can be null, an SVG, or a Text button
   final void Function()? ontap;
+  final Color? backColor;
+  final String? leadingImage;
+  final TextStyle? textstyle;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         CircleAvatar(
-          backgroundColor: AppColors.lightGrayishBlue, // Assuming #A0A5BA
+          backgroundColor:
+              backColor ?? AppColors.lightGrayishBlue, // Assuming #A0A5BA
           radius: 25,
           child: SvgPicture.asset(
-            Assets.assetsImagesBack,
+            leadingImage ?? Assets.assetsImagesBack,
             fit: BoxFit.cover,
             width: 10,
             height: 15,
@@ -32,7 +38,7 @@ class CustomAppBarWidget extends StatelessWidget {
         const Spacer(flex: 1),
         Text(
           title,
-          style: AppTextStyle.sen400Style17.copyWith(
+          style:textstyle?? AppTextStyle.sen400Style17.copyWith(
             color: AppColors.veryDarkBlue,
           ),
         ),

@@ -36,5 +36,11 @@ abstract class AppStrings {
       work = 'Work',
       other = 'Other',
       saveLocation = 'Save location',
-      myAddress = 'My Address';
+      myAddress = 'My Address',
+      editItems = ' EDIT ITEMS',
+      done = 'DONE',
+      deliveryAddress = 'DELIVERY ADDRESS',
+      total = 'TOTAL:',
+      breakdown = 'Breakdown',
+      placeOrder = 'PLACE ORDER';
 }
