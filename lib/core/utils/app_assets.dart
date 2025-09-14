@@ -6,6 +6,10 @@ class Assets {
   /// assets/images/add.svg
   static const String assetsImagesAdd = "assets/images/add.svg";
 
+  /// Assets for assetsImagesAddnew
+  /// assets/images/addnew.svg
+  static const String assetsImagesAddnew = "assets/images/addnew.svg";
+
   /// Assets for assetsImagesAddress
   /// assets/images/address.svg
   static const String assetsImagesAddress = "assets/images/address.svg";
@@ -26,9 +30,25 @@ class Assets {
   /// assets/images/breakdown.svg
   static const String assetsImagesBreakdown = "assets/images/breakdown.svg";
 
+  /// Assets for assetsImagesCard
+  /// assets/images/card.svg
+  static const String assetsImagesCard = "assets/images/card.svg";
+
+  /// Assets for assetsImagesCardd
+  /// assets/images/cardd.svg
+  static const String assetsImagesCardd = "assets/images/cardd.svg";
+
+  /// Assets for assetsImagesCarddd
+  /// assets/images/carddd.svg
+  static const String assetsImagesCarddd = "assets/images/carddd.svg";
+
   /// Assets for assetsImagesCart
   /// assets/images/cart.svg
   static const String assetsImagesCart = "assets/images/cart.svg";
+
+  /// Assets for assetsImagesCash
+  /// assets/images/Cash.svg
+  static const String assetsImagesCash = "assets/images/Cash.svg";
 
   /// Assets for assetsImagesCross
   /// assets/images/cross.svg
@@ -57,6 +77,10 @@ class Assets {
   /// Assets for assetsImagesLogout
   /// assets/images/logout.svg
   static const String assetsImagesLogout = "assets/images/logout.svg";
+
+  /// Assets for assetsImagesMastercard
+  /// assets/images/mastercard.svg
+  static const String assetsImagesMastercard = "assets/images/mastercard.svg";
 
   /// Assets for assetsImagesMore
   /// assets/images/More.svg
@@ -90,6 +114,10 @@ class Assets {
   /// assets/images/paymethod.svg
   static const String assetsImagesPaymethod = "assets/images/paymethod.svg";
 
+  /// Assets for assetsImagesPaypal
+  /// assets/images/paypal.svg
+  static const String assetsImagesPaypal = "assets/images/paypal.svg";
+
   /// Assets for assetsImagesPersonalinfo
   /// assets/images/personalinfo.svg
   static const String assetsImagesPersonalinfo = "assets/images/personalinfo.svg";
@@ -97,6 +125,14 @@ class Assets {
   /// Assets for assetsImagesPhone
   /// assets/images/phone.svg
   static const String assetsImagesPhone = "assets/images/phone.svg";
+
+  /// Assets for assetsImagesPolygon
+  /// assets/images/Polygon.svg
+  static const String assetsImagesPolygon = "assets/images/Polygon.svg";
+
+  /// Assets for assetsImagesRectangle
+  /// assets/images/Rectangle.png
+  static const String assetsImagesRectangle = "assets/images/Rectangle.png";
 
   /// Assets for assetsImagesRightarrow
   /// assets/images/rightarrow.svg
@@ -113,5 +149,9 @@ class Assets {
   /// Assets for assetsImagesUserrevew
   /// assets/images/userrevew.svg
   static const String assetsImagesUserrevew = "assets/images/userrevew.svg";
+
+  /// Assets for assetsImagesVisa
+  /// assets/images/visa.svg
+  static const String assetsImagesVisa = "assets/images/visa.svg";
 }
 

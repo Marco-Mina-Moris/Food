@@ -42,5 +42,23 @@ abstract class AppStrings {
       deliveryAddress = 'DELIVERY ADDRESS',
       total = 'TOTAL:',
       breakdown = 'Breakdown',
-      placeOrder = 'PLACE ORDER';
+      placeOrder = 'PLACE ORDER',
+      payment = 'Payment',
+      cash = 'Cash',
+      visa = 'Visa',
+      mastercard = 'Master Card',
+      payPal = 'PayPal',
+      noMasterCardAdded = ' No master card added',
+      youCanAddAmastercard = ' You can add a master card and save it for later',
+      payConfirm = ' PAY & CONFIRM',
+      addMakePayment = 'ADD & MAKE PAYMENT',
+      addCard = ' Add Card',
+      cardHolderName = 'CARD HOLDER NAME',
+      cardNumber = 'CARD NUMBER',
+      expireDate = 'EXPIRE DATE',
+      cvc = 'CVC',
+      trackOrder2 = 'TRACK ORDER',
+      congratulations = 'Congratulations!',
+      youSuccessfullyMakedAPayment =
+          'You successfully maked a payment,enjoy our service!';
 }

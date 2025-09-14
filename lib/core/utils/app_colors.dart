@@ -13,5 +13,5 @@ abstract class AppColors {
       lightSteelBlue = Color(0xffA0A5BA),
       lightgray = Color(0xffF6F8FA),
       darkBlue = Color(0xff121223),
-      paleBlue=Color(0xffF0F5FA);
+      paleBlue = Color(0xffF0F5FA);
 }
