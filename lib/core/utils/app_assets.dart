@@ -50,6 +50,14 @@ class Assets {
   /// assets/images/Cash.svg
   static const String assetsImagesCash = "assets/images/Cash.svg";
 
+  /// Assets for assetsImagesClose
+  /// assets/images/Close.svg
+  static const String assetsImagesClose = "assets/images/Close.svg";
+
+  /// Assets for assetsImagesCongratulation
+  /// assets/images/congratulation.jpg
+  static const String assetsImagesCongratulation = "assets/images/congratulation.jpg";
+
   /// Assets for assetsImagesCross
   /// assets/images/cross.svg
   static const String assetsImagesCross = "assets/images/cross.svg";

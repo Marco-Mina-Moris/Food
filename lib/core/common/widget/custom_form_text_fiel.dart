@@ -20,7 +20,8 @@ class CustomTextFormField extends StatefulWidget {
     this.borderRadius,
     this.enable = true,
     this.fillcolor,
-    this.hintststyle, this.fillColor,
+    this.hintststyle,
+    this.fillColor,
   });
   final TextEditingController? controller;
   final bool isPassword;

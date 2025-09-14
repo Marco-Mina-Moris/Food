@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food/core/utils/app_assets.dart';
@@ -7,9 +6,7 @@ import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
 
 class NoMasterCardPlaceholderWidget extends StatelessWidget {
-  const NoMasterCardPlaceholderWidget({
-    super.key,
-  });
+  const NoMasterCardPlaceholderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,4 +48,3 @@ class NoMasterCardPlaceholderWidget extends StatelessWidget {
     );
   }
 }
-

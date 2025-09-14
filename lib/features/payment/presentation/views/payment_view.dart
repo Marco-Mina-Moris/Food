@@ -7,6 +7,7 @@ import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
 import 'package:food/features/my_cart/presentation/views/widgets/custom_total_widget.dart';
+import 'package:food/features/payment/presentation/views/add_new_card_view.dart';
 import 'package:food/features/payment/presentation/views/widgets/custom_add_new_button.dart';
 import 'package:food/features/payment/presentation/views/widgets/custom_payment_option_widget.dart';
 import 'package:food/features/payment/presentation/views/widgets/mastercard_info_card_widget.dart';
@@ -84,10 +85,21 @@ class _PaymentViewState extends State<PaymentView> {
               ),
             ),
             SizedBox(height: 25),
-            //NoMasterCardPlaceholderWidget(),
-            MasterCardInfoCard(),
+            NoMasterCardPlaceholderWidget(),
+            //MasterCardInfoCard(),
             SizedBox(height: 15),
-            CustomAddNewButton(ontap: () {}),
+            CustomAddNewButton(
+              ontap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return AddNewCardView();
+                    },
+                  ),
+                );
+              },
+            ),
             Spacer(),
             CustomTotalWidget(),
             SizedBox(height: 30),

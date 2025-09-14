@@ -60,5 +60,5 @@ abstract class AppStrings {
       trackOrder2 = 'TRACK ORDER',
       congratulations = 'Congratulations!',
       youSuccessfullyMakedAPayment =
-          'You successfully maked a payment,enjoy our service!';
+          'You successfully maked a payment, enjoy our service!';
 }
