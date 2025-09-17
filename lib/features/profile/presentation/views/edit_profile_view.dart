@@ -83,7 +83,7 @@ class EditProfileView extends StatelessWidget {
                   ),
                   const SliverToBoxAdapter(child: SizedBox(height: 32)),
                   SliverToBoxAdapter(
-                    child: CustomButton(text: AppStrings.save, ontap: () {}),
+                    child: CustomButton(text: AppStrings.save, ontap: () {}, onPressed: () {  },),
                   ),
                   const SliverToBoxAdapter(child: SizedBox(height: 30)),
                 ],

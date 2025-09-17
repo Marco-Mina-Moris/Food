@@ -137,7 +137,7 @@ class AddNewCardView extends StatelessWidget {
                     },
                   ),
                 );
-              },
+              }, onPressed: () {  },
             ),
             SizedBox(height: 30),
           ],

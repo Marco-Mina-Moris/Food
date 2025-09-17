@@ -109,7 +109,7 @@ class _PaymentViewState extends State<PaymentView> {
             Spacer(),
             CustomTotalWidget(),
             SizedBox(height: 30),
-            CustomButton(text: AppStrings.payConfirm, ontap: () {}),
+            CustomButton(text: AppStrings.payConfirm, ontap: () {}, onPressed: () {  },),
             SizedBox(height: 30),
           ],
         ),

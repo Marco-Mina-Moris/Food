@@ -60,7 +60,7 @@ class CongratulationView extends StatelessWidget {
                     },
                   ),
                 );
-              },
+              }, onPressed: () {  },
             ),
             SizedBox(height: 30),
           ],

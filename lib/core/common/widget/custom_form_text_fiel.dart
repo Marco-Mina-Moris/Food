@@ -91,26 +91,15 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         errorStyle: const TextStyle(color: Colors.red),
         prefixIcon: widget.prefixIcon,
         prefix: widget.prefix,
-        suffixIcon:
-            widget.isPassword
-                ? GestureDetector(
-                  onTap: _toggleObscureText,
-                  child: Icon(
-                    obscureText ? Icons.visibility_off : Icons.visibility,
-                    // color: AppColor.gray,
-                    size: 27,
-                  ),
-                )
-                : widget.suffixWidget,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 13,
-          vertical: 14,
+        suffixIcon: GestureDetector(
+          onTap: _toggleObscureText,
+
+          child: Icon(
+            obscureText ? Icons.visibility_off : Icons.visibility,
+            // color: AppColor.gray,
+            size: 27,
+          ),
         ),
-        border: outlineInputBorder(color: Colors.grey, width: 1),
-        enabledBorder: outlineInputBorder(color: Colors.grey, width: 1),
-        focusedBorder: outlineInputBorder(color: Colors.black, width: 1),
-        errorBorder: outlineInputBorder(color: Colors.red, width: 1),
-        focusedErrorBorder: outlineInputBorder(color: Colors.red, width: 1),
       ),
     );
   }
