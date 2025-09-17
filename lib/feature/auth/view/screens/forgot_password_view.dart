@@ -134,7 +134,7 @@ class _ForgotPasswordScreen extends State<ForgotPasswordScreen> {
                                 '/verification',
                               );
                               // }
-                            },
+                            }, ontap: () {  },
                           ),
                         ],
                       ),

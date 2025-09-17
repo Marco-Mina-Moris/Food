@@ -114,7 +114,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 } else {
                   Navigator.pushReplacementNamed(context, '/login');
                 }
-              },
+              }, ontap: () {  },
             ),
             SizedBox(height: 16),
             Visibility(

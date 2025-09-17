@@ -19,10 +19,14 @@ dependencies:
   toastification: ^3.0.3
   shared_preferences: ^2.5.3
   flutter_svg: ^2.2.0
+  input_quantity: ^2.5.1
+  item_count_number_button: ^1.9.2
+  timeline_tile: ^2.0.0
   animate_do: ^4.2.0
   smooth_page_indicator: ^1.2.1
   font_awesome_flutter: ^10.9.1
   pinput: ^5.0.2
+  flutter_animate: ^4.5.2
 
 
 dev_dependencies:
@@ -51,7 +55,7 @@ flutter:
     - family: Sen
       fonts:
         - asset: assets/fonts/sen-regular.otf
-        - asset: assets/fonts/sen-bold.otf
+        
       
 flutter_assets:
   assets_path: assets/images/

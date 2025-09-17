@@ -20,7 +20,7 @@ class CustomButton extends StatelessWidget {
     this.borderRadius = 12,
     this.height = 60,
     this.width,
-    this.fontSize = 16,
+    this.fontSize = 16, required Null Function() ontap,
   });
 
   @override

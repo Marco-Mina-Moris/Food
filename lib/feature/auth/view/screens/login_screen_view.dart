@@ -181,7 +181,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               // if (formKey.currentState!.validate()) {
 
                               // }
-                            },
+                            }, ontap: () {  },
                           ),
                           SizedBox(height: 38),
                           // Sign up link

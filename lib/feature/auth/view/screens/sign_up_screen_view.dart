@@ -200,7 +200,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                                 '/permission',
                               );
                               // }
-                            },
+                            }, ontap: () {  },
                           ),
                         ],
                       ),

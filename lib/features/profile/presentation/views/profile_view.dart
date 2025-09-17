@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food/core/utils/app_strings.dart';
-import 'package:food/features/my_orders/presentation/views/widgets/custom_app_bar_widget.dart';
+import 'package:food/core/common/widget/custom_app_bar_widget.dart';
 import 'package:food/features/profile/presentation/views/widgets/custom_account_info_widget.dart';
 import 'package:food/features/profile/presentation/views/widgets/custom_log_out_widget.dart';
 import 'package:food/features/profile/presentation/views/widgets/profile_image_name_widget.dart';

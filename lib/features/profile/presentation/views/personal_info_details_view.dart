@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
-import 'package:food/features/my_orders/presentation/views/widgets/custom_app_bar_widget.dart';
+import 'package:food/core/common/widget/custom_app_bar_widget.dart';
 import 'package:food/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:food/features/profile/presentation/views/widgets/custom_profile_info_detils_widget.dart';
 import 'package:food/features/profile/presentation/views/widgets/profile_image_name_widget.dart';

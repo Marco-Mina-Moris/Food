@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food/core/constants/assets_constants.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:food/core/utils/app_colors.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -20,6 +19,9 @@ class CustomTextFormField extends StatefulWidget {
     this.focusNode,
     this.borderRadius,
     this.enable = true,
+    this.fillcolor,
+    this.hintststyle,
+    this.fillColor,
   });
   final TextEditingController? controller;
   final bool isPassword;
@@ -33,6 +35,10 @@ class CustomTextFormField extends StatefulWidget {
   final FocusNode? focusNode;
   final BorderRadius? borderRadius;
   final bool? enable;
+
+  final Color? fillcolor;
+  final TextStyle? hintststyle;
+  final Color? fillColor;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -77,36 +83,23 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
       textAlignVertical: TextAlignVertical.center,
       decoration: InputDecoration(
-        fillColor: Colors.transparent,
+        fillColor: widget.fillColor,
         filled: true,
         hintText: widget.hintText,
-        hintStyle: GoogleFonts.sen(
-          fontSize: 14,
-          color: Color(0xffA0A5BA),
-          fontWeight: FontWeight.w400,
-        ),
+        hintStyle: widget.hintststyle,
         errorMaxLines: 4,
         errorStyle: const TextStyle(color: Colors.red),
         prefixIcon: widget.prefixIcon,
         prefix: widget.prefix,
-        suffixIcon:
-            widget.isPassword
-                ? GestureDetector(
-                  onTap: _toggleObscureText,
-                  child: Image.asset(
-                    obscureText ? AssetsConstants.eyeOff : AssetsConstants.eye,
-                  ),
-                )
-                : widget.suffixWidget,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 13,
-          vertical: 14,
+        suffixIcon: GestureDetector(
+          onTap: _toggleObscureText,
+
+          child: Icon(
+            obscureText ? Icons.visibility_off : Icons.visibility,
+            // color: AppColor.gray,
+            size: 27,
+          ),
         ),
-        border: outlineInputBorder(color: Colors.transparent, width: 1),
-        enabledBorder: outlineInputBorder(color: Color(0xfff0f5fa), width: 1),
-        focusedBorder: outlineInputBorder(color: Color(0xffF0F5FA), width: 1),
-        errorBorder: outlineInputBorder(color: Colors.red, width: 1),
-        focusedErrorBorder: outlineInputBorder(color: Colors.red, width: 1),
       ),
     );
   }
