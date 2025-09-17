@@ -4,6 +4,7 @@ import 'package:food/core/utils/app_assets.dart';
 import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/app_text_style.dart';
 import 'package:food/features/tracking_order/presentation/views/delivery_man_call_view.dart';
+import 'package:food/features/tracking_order/presentation/views/delivery_man_message_view.dart';
 
 class CourierInfoCard extends StatelessWidget {
   const CourierInfoCard({super.key});
@@ -71,8 +72,15 @@ class CourierInfoCard extends StatelessWidget {
             ),
             SizedBox(width: 12),
             GestureDetector(
-              onTap: (){
-                
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return DeliveryManMessageView();
+                    },
+                  ),
+                );
               },
               child: Container(
                 height: 48,

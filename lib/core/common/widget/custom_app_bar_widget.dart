@@ -12,7 +12,8 @@ class CustomAppBarWidget extends StatelessWidget {
     this.ontap,
     this.backColor,
     this.leadingImage,
-    this.textstyle, this.ontapBack, // Optional trailing widget
+    this.textstyle,
+    this.ontapBack, // Optional trailing widget
   });
 
   final String title;
@@ -47,6 +48,7 @@ class CustomAppBarWidget extends StatelessWidget {
               textstyle ??
               AppTextStyle.sen400Style17.copyWith(
                 color: AppColors.veryDarkBlue,
+                fontSize: 20,
               ),
         ),
         const Spacer(flex: 8),
