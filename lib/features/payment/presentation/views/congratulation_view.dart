@@ -3,6 +3,7 @@ import 'package:food/core/common/widget/Custom_button.dart';
 import 'package:food/core/utils/app_assets.dart';
 import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
+import 'package:food/features/tracking_order/presentation/views/tracking_order_view.dart';
 
 class CongratulationView extends StatelessWidget {
   const CongratulationView({super.key});
@@ -48,7 +49,19 @@ class CongratulationView extends StatelessWidget {
               ),
             ),
             Spacer(),
-            CustomButton(text: AppStrings.trackOrder2, ontap: () {}),
+            CustomButton(
+              text: AppStrings.trackOrder2,
+              ontap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return TrackingOrderView();
+                    },
+                  ),
+                );
+              },
+            ),
             SizedBox(height: 30),
           ],
         ),

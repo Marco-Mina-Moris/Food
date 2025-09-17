@@ -21,6 +21,7 @@ dependencies:
   flutter_svg: ^2.2.0
   input_quantity: ^2.5.1
   item_count_number_button: ^1.9.2
+  timeline_tile: ^2.0.0
 
 dev_dependencies:
   flutter_test:

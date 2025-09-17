@@ -23,6 +23,9 @@ class AddNewCardView extends StatelessWidget {
               title: AppStrings.addCard,
               leadingImage: Assets.assetsImagesClose,
               trailing: SizedBox(),
+              ontapBack: () {
+                Navigator.pop(context);
+              },
             ),
             SizedBox(height: 24),
             Container(

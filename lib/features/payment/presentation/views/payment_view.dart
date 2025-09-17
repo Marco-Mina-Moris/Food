@@ -31,7 +31,13 @@ class _PaymentViewState extends State<PaymentView> {
         child: Column(
           children: [
             SizedBox(height: 50),
-            CustomAppBarWidget(title: AppStrings.payment, trailing: SizedBox()),
+            CustomAppBarWidget(
+              title: AppStrings.payment,
+              trailing: SizedBox(),
+              ontapBack: () {
+                Navigator.pop(context);
+              },
+            ),
             SizedBox(height: 31),
             SingleChildScrollView(
               clipBehavior: Clip.none,

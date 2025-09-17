@@ -30,6 +30,10 @@ class Assets {
   /// assets/images/breakdown.svg
   static const String assetsImagesBreakdown = "assets/images/breakdown.svg";
 
+  /// Assets for assetsImagesCall Icon
+  /// assets/images/Call Icon.svg
+  static const String assetsImagesCall   = "assets/images/Call Icon.svg";
+
   /// Assets for assetsImagesCard
   /// assets/images/card.svg
   static const String assetsImagesCard = "assets/images/card.svg";
@@ -78,6 +82,10 @@ class Assets {
   /// assets/images/Home.svg
   static const String assetsImagesHome = "assets/images/Home.svg";
 
+  /// Assets for assetsImagesLoading
+  /// assets/images/loading.svg
+  static const String assetsImagesLoading = "assets/images/loading.svg";
+
   /// Assets for assetsImagesLogo
   /// assets/images/logo.png
   static const String assetsImagesLogo = "assets/images/logo.png";
@@ -89,6 +97,10 @@ class Assets {
   /// Assets for assetsImagesMastercard
   /// assets/images/mastercard.svg
   static const String assetsImagesMastercard = "assets/images/mastercard.svg";
+
+  /// Assets for assetsImagesMessage
+  /// assets/images/message.svg
+  static const String assetsImagesMessage = "assets/images/message.svg";
 
   /// Assets for assetsImagesMore
   /// assets/images/More.svg
@@ -134,6 +146,10 @@ class Assets {
   /// assets/images/phone.svg
   static const String assetsImagesPhone = "assets/images/phone.svg";
 
+  /// Assets for assetsImagesPhoneCall
+  /// assets/images/phone-call.svg
+  static const String assetsImagesPhoneCall = "assets/images/phone-call.svg";
+
   /// Assets for assetsImagesPolygon
   /// assets/images/Polygon.svg
   static const String assetsImagesPolygon = "assets/images/Polygon.svg";
@@ -141,6 +157,10 @@ class Assets {
   /// Assets for assetsImagesRectangle
   /// assets/images/Rectangle.png
   static const String assetsImagesRectangle = "assets/images/Rectangle.png";
+
+  /// Assets for assetsImagesRestuarant Image
+  /// assets/images/Restuarant Image.png
+  static const String assetsImagesRestuarant   = "assets/images/Restuarant Image.png";
 
   /// Assets for assetsImagesRightarrow
   /// assets/images/rightarrow.svg
