@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:food/core/routes/app_routes.dart';
-import 'package:food/features/home/screens/home_screen.dart';
+import 'package:food/features/home/view/screens/home_screen.dart';
 
-import 'features/food_burgers/view/screens/food_burgers.dart';
-import 'features/food_details/view/screens/food_details.dart';
-import 'features/restaurant_view/view/screens/restaurant_view.dart';
-import 'features/restaurant_view/view/screens/restaurant_view2.dart';
-
-void main() {
+void main() async {
+  // List <CategoryResponse> data=await HomeApi.getCategories();
+  // log(data.toString());
+  // log(data.length.toString());
+  //  RestaurantMenuResponse data1=await HomeApi.getRecipes();
+  // log(data1.toString());
+  // log(data1.limit.toString());
+  // final recipesResponse = await HomeApi.getRecipes(limit: 20);
+  // log(recipesResponse.toString());
+  // log(recipesResponse.limit.toString());
   runApp(const FoodDeliveryApp());
 }
 
@@ -24,6 +27,5 @@ class FoodDeliveryApp extends StatelessWidget {
       // onGenerateRoute: AppRoutes.generateRoute,
       home: HomeScreen(),
     );
-
   }
 }
