@@ -11,13 +11,13 @@ void main() async {
   // final recipesResponse = await HomeApi.getRecipes(limit: 20);
   // log(recipesResponse.toString());
   // log(recipesResponse.limit.toString());
-  runApp(const FoodDeliveryApp());
+
+  runApp(FoodDeliveryApp());
 }
 
 class FoodDeliveryApp extends StatelessWidget {
   const FoodDeliveryApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class AppColors {
@@ -13,4 +11,15 @@ class AppColors {
   static const Color success = Color(0xFF4CAF50);
   static const Color error = Color(0xFFF44336);
   static const Color warning = Color(0xFFFF9800);
+
+  static Color lightGrayishBlue = Color(0xffECF0F4);
+  static Color veryDarkBlue = Color(0xff181C2E);
+  static Color darkGray = Color(0xff6B6E82);
+  static Color lavenderGray = Color(0xffCACCDA);
+  static Color green = Color(0xff059C6A);
+  static Color bluegray = Color(0xff32343E);
+  static Color lightSteelBlue = Color(0xffA0A5BA);
+  static Color lightgray = Color(0xffF6F8FA);
+  static Color darkBlue = Color(0xff121223);
+  static Color paleBlue = Color(0xffF0F5FA);
 }
