@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food/core/constants/app_apis.dart';
 import 'package:food/core/utils/app_colors.dart';
 import 'package:food/features/home/view/screens/recipe_details_screen.dart';
+import 'package:food/features/home/view/widgets/build_category.dart';
+import 'package:food/features/home/view_model/home_cubit.dart';
 
-import '../../../category_meals/view/screens/category_meals_screen.dart';
-import '../../model/response/category2_response.dart';
 import '../../model/response/restaurants_response.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -90,104 +91,28 @@ class _HomeScreenState extends State<HomeScreen> {
 
               SizedBox(
                 height: 220,
-                child: FutureBuilder<CategoryResponse2>(
-                  future: HomeApi.getCategories2(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
+                child: BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) {
+                    //Loading
+                    if (state is HomeLoading) {
                       return const Center(child: CircularProgressIndicator());
                     }
-                    if (snapshot.hasError) {
-                      return Center(child: Text("Error: ${snapshot.error}"));
-                    }
-                    if (!snapshot.hasData ||
-                        snapshot.data!.categories == null ||
-                        snapshot.data!.categories!.isEmpty) {
-                      return const Center(child: Text("No categories found"));
-                    }
 
-                    final categories = snapshot.data!.categories!;
-                    return ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: categories.length,
-                      itemBuilder: (context, index) {
-                        final category = categories[index];
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder:
-                                    (_) => CategoryMealsScreen(
-                                      categoryName:
-                                          category.strCategory ?? "Unknown",
-                                    ),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.only(right: 16),
-                            width: 180,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(16),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: 6,
-                                  offset: Offset(0, 3),
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: const BorderRadius.vertical(
-                                    top: Radius.circular(16),
-                                  ),
-                                  child: Image.network(
-                                    category.strCategoryThumb ??
-                                        "https://img.icons8.com/color/96/question-mark.png",
-                                    height: 120,
-                                    width: double.infinity,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        category.strCategory ?? "No Name",
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                      const SizedBox(height: 4),
-                                      Text(
-                                        category.strCategoryDescription ??
-                                            "No Description",
-                                        maxLines: 2,
-                                        style: const TextStyle(
-                                          fontSize: 12,
-                                          color: Colors.grey,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    );
+                    //Error
+                    if (state is HomeError) {
+                      return Center(
+                        child: Text(
+                          state.messageError ?? "Something went wrong!",
+                          style: const TextStyle(color: Colors.red),
+                        ),
+                      );
+                    }
+                    //Success
+                    final categories = context.read<HomeCubit>().categories;
+                    return BuildCategory(categories: categories);
                   },
                 ),
               ),
-
               SizedBox(height: 20),
               Row(
                 children: [Text("Open Restaurants"), Spacer(), Text("See All")],

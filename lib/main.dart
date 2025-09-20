@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food/features/home/view/screens/home_screen.dart';
+
+import 'feature/app_section/app_section.dart';
 
 void main() async {
   // List <CategoryResponse> data=await HomeApi.getCategories();
@@ -25,7 +26,7 @@ class FoodDeliveryApp extends StatelessWidget {
       title: 'Food Delivery App',
       // initialRoute: AppRoutes.splash,
       // onGenerateRoute: AppRoutes.generateRoute,
-      home: HomeScreen(),
+      home: AppSection(),
     );
   }
 }

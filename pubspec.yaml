@@ -31,6 +31,7 @@ dependencies:
   font_awesome_flutter: ^10.9.1
   pinput: ^5.0.2
   flutter_animate: ^4.5.2
+  skeletonizer: ^2.1.0+1
 
 
 
