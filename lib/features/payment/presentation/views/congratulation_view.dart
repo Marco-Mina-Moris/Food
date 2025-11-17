@@ -51,7 +51,7 @@ class CongratulationView extends StatelessWidget {
             Spacer(),
             CustomButton(
               text: AppStrings.trackOrder2,
-              ontap: () {
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -60,7 +60,7 @@ class CongratulationView extends StatelessWidget {
                     },
                   ),
                 );
-              }, onPressed: () {  },
+              },
             ),
             SizedBox(height: 30),
           ],

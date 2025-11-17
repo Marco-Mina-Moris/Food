@@ -8,17 +8,15 @@ version: 1.0.0+1
 environment:
   sdk: ^3.7.2
 
-
 dependencies:
   flutter:
     sdk: flutter
-
 
   cupertino_icons: ^1.0.8
   google_fonts: ^6.3.1
   toastification: ^3.0.3
   shared_preferences: ^2.5.3
-  flutter_svg: ^2.2.0
+  flutter_svg: ^2.2.2
   input_quantity: ^2.5.1
   item_count_number_button: ^1.9.2
   timeline_tile: ^2.0.0
@@ -27,30 +25,35 @@ dependencies:
   font_awesome_flutter: ^10.9.1
   pinput: ^5.0.2
   flutter_animate: ^4.5.2
+  flutter_bloc: ^9.1.1
+  bloc: ^9.1.0
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
+  cloud_firestore: ^6.1.0
+  google_sign_in: ^6.2.1
+  permission_handler: ^12.0.1
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-
+  flutter_launcher_icons: ^0.14.4
   flutter_lints: ^5.0.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+# setting up flutter launcher icons
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/food_delivery_app.png"  
+  min_sdk_android: 21
 
-# The following section is specific to Flutter packages.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
     - assets/icons/
+
   fonts:
     - family: Sen
       fonts:

@@ -128,7 +128,7 @@ class AddNewCardView extends StatelessWidget {
             Spacer(),
             CustomButton(
               text: AppStrings.addMakePayment,
-              ontap: () {
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -137,7 +137,7 @@ class AddNewCardView extends StatelessWidget {
                     },
                   ),
                 );
-              }, onPressed: () {  },
+              },
             ),
             SizedBox(height: 30),
           ],

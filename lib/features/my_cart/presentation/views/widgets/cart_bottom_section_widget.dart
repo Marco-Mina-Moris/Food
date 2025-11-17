@@ -72,7 +72,7 @@ class CartBottomSectionWidget extends StatelessWidget {
             SizedBox(height: 30),
             CustomButton(
               text: AppStrings.placeOrder,
-              ontap: () {
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -81,7 +81,7 @@ class CartBottomSectionWidget extends StatelessWidget {
                     },
                   ),
                 );
-              }, onPressed: () {  },
+              },
             ),
           ],
         ),

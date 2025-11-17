@@ -240,7 +240,7 @@ class _VerificationScreen extends State<VerificationScreen> {
                         ),
                         SizedBox(height: 30),
                         // Send Code button
-                        CustomButton(text: 'Verify', onPressed: () {}, ontap: () {  },),
+                        CustomButton(text: 'Verify', onPressed: () {},),
                       ],
                     ),
                   ),

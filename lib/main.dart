@@ -1,12 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:food/features/my_cart/presentation/views/my_cart_view.dart';
-import 'package:food/features/my_orders/presentation/views/my_orders_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:food/features/profile/presentation/views/profile_view.dart';
+import 'package:food/core/routes/app_routes.dart';
+import 'package:food/firebase_options.dart';
+import 'package:food/feature/auth/viewmodel/auth_cubit.dart';
 
-void main() {
-  //debugPaintSizeEnabled = true;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const FoodDeliveryApp());
 }
 
@@ -15,6 +17,14 @@ class FoodDeliveryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: MyCartView());
+    return MultiBlocProvider(
+      providers: [BlocProvider(create: (_) => AuthCubit())],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Food Delivery App',
+        initialRoute: AppRoutes.splash,
+        onGenerateRoute: AppRoutes.generateRoute,
+      ),
+    );
   }
 }

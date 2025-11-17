@@ -36,7 +36,7 @@ class AddressView extends StatelessWidget {
             const Spacer(),
             CustomButton(
               text: AppStrings.addnewaddress,
-              ontap: () {
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -45,7 +45,7 @@ class AddressView extends StatelessWidget {
                     },
                   ),
                 );
-              }, onPressed: () {  },
+              }, 
             ),
             const SizedBox(height: 30),
           ],

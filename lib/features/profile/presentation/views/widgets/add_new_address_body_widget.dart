@@ -60,7 +60,7 @@ class AddNewAddressBodyWidget extends StatelessWidget {
           const SizedBox(height: 32),
 
           Center(
-            child: CustomButton(text: AppStrings.saveLocation, ontap: () {}, onPressed: () {  },),
+            child: CustomButton(text: AppStrings.saveLocation, onPressed: () {  },),
           ),
           const SizedBox(height: 30),
         ],
