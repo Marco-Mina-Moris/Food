@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food/feature/auth/view/screens/forgot_password_view.dart';
-import 'package:food/feature/auth/view/screens/login_screen_view.dart';
 import 'package:food/feature/auth/view/screens/permission_screen_view.dart';
 import 'package:food/feature/auth/view/screens/sign_up_screen_view.dart';
 import 'package:food/feature/onboarding/onboarding_screen.dart';
-import 'package:food/feature/splash/splash_screen.dart';
+import 'package:food/features/auth/view/screens/login_screen_view.dart';
+import 'package:food/features/splash/splash_screen.dart';
 
 class AppRoutes {
   // User Routes
