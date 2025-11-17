@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food/core/utils/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:food/core/constants/assets_constants.dart';
 
@@ -36,7 +37,7 @@ class AuthLayout extends StatelessWidget {
                     // Diagonal lines pattern
                     Container(
                       decoration: BoxDecoration(
-                        color: Color(0xff121223),
+                        color: AppColors.darkBlue,
                         image: DecorationImage(
                           image: AssetImage(image),
                           fit: BoxFit.cover,

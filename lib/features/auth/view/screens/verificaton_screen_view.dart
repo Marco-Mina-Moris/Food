@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food/core/common/widget/custom_button.dart';
 import 'package:food/core/constants/assets_constants.dart';
 import 'package:food/core/dialogs/app_toasts.dart';
+import 'package:food/core/utils/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 import 'package:toastification/toastification.dart';
@@ -79,7 +80,7 @@ class _VerificationScreen extends State<VerificationScreen> {
                     // Diagonal lines pattern
                     Container(
                       decoration: BoxDecoration(
-                        color: Color(0xff121223),
+                        color: AppColors.darkBlue,
                         image: DecorationImage(
                           image: AssetImage(AssetsConstants.appBarV2),
                           fit: BoxFit.cover,
@@ -167,7 +168,7 @@ class _VerificationScreen extends State<VerificationScreen> {
                               'CODE',
                               style: GoogleFonts.sen(
                                 fontSize: 13,
-                                color: Color(0xff32343E),
+                                color: AppColors.bluegray,
                                 fontWeight: FontWeight.w500,
                                 letterSpacing: 1,
                               ),
@@ -182,7 +183,7 @@ class _VerificationScreen extends State<VerificationScreen> {
                                       fontSize: 13,
                                       color:
                                           canResend
-                                              ? Color(0xffFF7622)
+                                              ? AppColors.orange
                                               : Color(0xff646982),
                                       fontWeight: FontWeight.w500,
                                       letterSpacing: 1,
@@ -206,7 +207,7 @@ class _VerificationScreen extends State<VerificationScreen> {
                                       '${remainingSeconds}sec',
                                       style: GoogleFonts.sen(
                                         fontSize: 13,
-                                        color: Color(0xff32343E),
+                                        color: AppColors.bluegray,
                                         fontWeight: FontWeight.w500,
                                         letterSpacing: 1,
                                       ),
@@ -229,18 +230,18 @@ class _VerificationScreen extends State<VerificationScreen> {
                             height: 60,
                             textStyle: GoogleFonts.sen(
                               fontSize: 16,
-                              color: Color(0xff32343E),
+                              color: AppColors.bluegray,
                               fontWeight: FontWeight.w700,
                             ),
                             decoration: BoxDecoration(
-                              color: Color(0xffF0F5FA),
+                              color: AppColors.paleBlue,
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
                         ),
                         SizedBox(height: 30),
                         // Send Code button
-                        CustomButton(text: 'Verify', onPressed: () {},),
+                        CustomButton(text: 'Verify', onPressed: () {}),
                       ],
                     ),
                   ),

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:food/core/common/widget/custom_button.dart';
-import 'package:food/core/common/widget/custom_form_text_fiel.dart';
+import 'package:food/core/common/widget/custom_form_text_field.dart';
+import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/validator_functions.dart';
 
 import 'package:food/core/constants/assets_constants.dart';
@@ -25,8 +26,9 @@ class LoginScreen extends StatelessWidget {
         if (state is AuthSuccess) {
           Navigator.pushReplacementNamed(context, '/permission');
         } else if (state is AuthFailure) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(state.message)));
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(state.message)));
         }
       },
       builder: (context, state) {
@@ -49,11 +51,13 @@ class LoginScreen extends StatelessWidget {
                 Text("EMAIL", style: GoogleFonts.sen(fontSize: 13)),
                 const SizedBox(height: 8),
                 CustomTextFormField(
+                  isPassword: false,
                   controller: _emailController,
                   validator: Validator.validateEmail,
                   hintText: "example@gmail.com",
                   keyboardType: TextInputType.emailAddress,
                   action: TextInputAction.next,
+                  fillColor: AppColors.lightSteelBlue,
                 ),
 
                 const SizedBox(height: 24),
@@ -81,9 +85,9 @@ class LoginScreen extends StatelessWidget {
                         Checkbox(
                           value: rememberMe,
                           onChanged: (value) {
-                            context
-                                .read<AuthCubit>()
-                                .toggleRememberMe(value ?? false);
+                            context.read<AuthCubit>().toggleRememberMe(
+                              value ?? false,
+                            );
                           },
                           activeColor: Color(0xFFFF6B35),
                         ),
@@ -107,7 +111,7 @@ class LoginScreen extends StatelessWidget {
                       child: Text(
                         'Forgot Password',
                         style: GoogleFonts.sen(
-                          color: Color(0xFFFF7622),
+                          color: AppColors.orange,
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
@@ -127,9 +131,9 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         context.read<AuthCubit>().login(
-                              _emailController.text.trim(),
-                              _passwordController.text.trim(),
-                            );
+                          _emailController.text.trim(),
+                          _passwordController.text.trim(),
+                        );
                       }
                     },
                   ),
@@ -154,7 +158,7 @@ class LoginScreen extends StatelessWidget {
                           TextSpan(
                             text: 'SIGN UP',
                             style: GoogleFonts.sen(
-                              color: Color(0xFFFF7622),
+                              color: AppColors.orange,
                               fontWeight: FontWeight.w700,
                               fontSize: 14,
                             ),
@@ -164,9 +168,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                const SizedBox(height: 27),
-
+                const SizedBox(height: 15),
                 // Or Divider
                 Center(
                   child: Text(
@@ -178,16 +180,14 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 15),
-
                 // Social Google Button
                 Container(
                   height: 60,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: Color(0xFFFF7622), width: 1.5),
+                    border: Border.all(color: AppColors.orange, width: 1.5),
                   ),
                   child: GestureDetector(
                     onTap: () => context.read<AuthCubit>().signInWithGoogle(),
@@ -203,7 +203,7 @@ class LoginScreen extends StatelessWidget {
                         Text(
                           "Login With Google",
                           style: GoogleFonts.sen(
-                            color: Color(0xffFF7622),
+                            color: AppColors.orange,
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
                           ),

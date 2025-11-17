@@ -11,7 +11,8 @@ class ProfileFieldWidget extends StatelessWidget {
     required this.label,
     required this.hintText,
     this.heightt,
-    this.isBio, this.icon,
+    this.isBio,
+    this.icon,
   });
   final double? heightt;
   final bool? isBio;
@@ -28,7 +29,7 @@ class ProfileFieldWidget extends StatelessWidget {
               color: AppColors.veryDarkBlue,
             ),
           ),
-        const  SizedBox(height: 8),
+          const SizedBox(height: 8),
           SizedBox(
             height: heightt ?? 60,
             child: TextFormField(
@@ -42,7 +43,7 @@ class ProfileFieldWidget extends StatelessWidget {
                   color: AppColors.darkGray,
                 ),
                 filled: true,
-                fillColor: Color(0xffF0F5FA),
+                fillColor: AppColors.paleBlue,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
                   borderSide: BorderSide.none, // Remove default border
@@ -57,6 +58,5 @@ class ProfileFieldWidget extends StatelessWidget {
         ],
       ),
     );
-
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food/core/utils/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomButton extends StatelessWidget {
@@ -11,17 +12,17 @@ class CustomButton extends StatelessWidget {
   final double? width;
   final double fontSize;
 
-  const CustomButton({
+  CustomButton({
     super.key,
     required this.text,
     required this.onPressed,
-    this.color = const Color(0xffFF7622),
+    Color? color,
     this.textColor = Colors.white,
     this.borderRadius = 12,
     this.height = 60,
     this.width,
     this.fontSize = 16,
-  });
+  }) : color = color ?? AppColors.orange;
 
   @override
   Widget build(BuildContext context) {

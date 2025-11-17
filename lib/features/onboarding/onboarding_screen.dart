@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food/core/common/animation/custom_animated_widget.dart';
 import 'package:food/core/common/widget/custom_button.dart';
 import 'package:food/core/constants/assets_constants.dart';
+import 'package:food/core/utils/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -71,7 +72,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       style: GoogleFonts.sen(
                         fontSize: 24,
                         fontWeight: FontWeight.w800,
-                        color: Color(0xff32343E),
+                        color: AppColors.bluegray,
                       ),
                     ),
                     SizedBox(height: 18),
@@ -93,7 +94,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         dotWidth: 10,
                         dotHeight: 10,
                         dotColor: Color(0xffFFE1CE),
-                        activeDotColor: Color(0xffFF7622),
+                        activeDotColor: AppColors.orange,
                       ),
                     ),
                   ],
@@ -113,7 +114,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 } else {
                   Navigator.pushReplacementNamed(context, '/login');
                 }
-              }, 
+              },
             ),
             SizedBox(height: 16),
             Visibility(

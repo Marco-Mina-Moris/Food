@@ -1,13 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
 
 class CustomLabelAsWidget extends StatelessWidget {
-  const CustomLabelAsWidget({
-    super.key,
-  });
+  const CustomLabelAsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +13,7 @@ class CustomLabelAsWidget extends StatelessWidget {
       children: [
         ElevatedButton(
           onPressed: () {},
-    
+
           style: ElevatedButton.styleFrom(
             minimumSize: Size(94, 45),
             backgroundColor: Colors.orange,
@@ -26,18 +23,16 @@ class CustomLabelAsWidget extends StatelessWidget {
           ),
           child: Text(
             AppStrings.home,
-            style: AppTextStyle.sen400Style14.copyWith(
-              color: Colors.white,
-            ),
+            style: AppTextStyle.sen400Style14.copyWith(color: Colors.white),
           ),
         ),
-       const SizedBox(width: 15),
+        const SizedBox(width: 15),
         ElevatedButton(
           onPressed: () {},
-    
+
           style: ElevatedButton.styleFrom(
             minimumSize: Size(94, 45),
-            backgroundColor: Color(0xffF0F5FA),
+            backgroundColor: AppColors.paleBlue,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
@@ -49,13 +44,13 @@ class CustomLabelAsWidget extends StatelessWidget {
             ),
           ),
         ),
-       const SizedBox(width: 15),
+        const SizedBox(width: 15),
         ElevatedButton(
           onPressed: () {},
-    
+
           style: ElevatedButton.styleFrom(
             minimumSize: Size(94, 45),
-            backgroundColor: Color(0xffF0F5FA),
+            backgroundColor: AppColors.paleBlue,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),

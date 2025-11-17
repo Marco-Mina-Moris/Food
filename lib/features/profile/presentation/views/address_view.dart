@@ -7,7 +7,7 @@ import 'package:food/features/profile/presentation/views/add_new_address_view.da
 import 'package:food/features/profile/presentation/views/widgets/custom_address_list_tile_widget.dart';
 
 class AddressView extends StatelessWidget {
-  AddressView({super.key});
+  const AddressView({super.key});
 
   @override
   Widget build(BuildContext context) {
