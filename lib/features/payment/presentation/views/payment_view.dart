@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:food/core/common/widget/Custom_button.dart';
+import 'package:food/core/common/widget/custom_button.dart';
 import 'package:food/core/common/widget/custom_app_bar_widget.dart';
 import 'package:food/core/utils/app_assets.dart';
 import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
-import 'package:food/features/my_cart/presentation/views/widgets/custom_total_widget.dart';
+import 'package:food/features/cart/presentation/views/widgets/custom_total_widget.dart';
 import 'package:food/features/payment/presentation/views/add_new_card_view.dart';
 import 'package:food/features/payment/presentation/views/widgets/custom_add_new_button.dart';
 import 'package:food/features/payment/presentation/views/widgets/custom_payment_option_widget.dart';

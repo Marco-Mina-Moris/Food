@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:food/features/auth/model/user_model.dart';
 // import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:food/feature/auth/model/user_model.dart';
+
 import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseManager {

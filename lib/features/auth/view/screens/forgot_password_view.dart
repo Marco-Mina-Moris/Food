@@ -5,8 +5,8 @@ import 'package:food/core/common/widget/custom_form_text_fiel.dart';
 import 'package:food/core/constants/assets_constants.dart';
 import 'package:food/core/utils/validator_functions.dart';
 
-import 'package:food/feature/auth/viewmodel/auth_cubit.dart';
 import 'package:food/features/auth/view/widget/auth_layout_widget.dart';
+import 'package:food/features/auth/viewmodel/auth_cubit.dart';
 import 'package:food/features/auth/viewmodel/auth_state.dart';
 
 import 'package:google_fonts/google_fonts.dart';

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'package:food/core/common/widget/Custom_button.dart';
+import 'package:food/core/common/widget/custom_button.dart';
 import 'package:food/core/common/widget/custom_form_text_fiel.dart';
 import 'package:food/core/utils/app_assets.dart';
 import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/common/widget/custom_app_bar_widget.dart';
 import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
-import 'package:food/features/my_cart/presentation/views/widgets/cart_bottom_section_widget.dart';
-import 'package:food/features/my_cart/presentation/views/widgets/cart_item_widget.dart';
+import 'package:food/features/cart/presentation/views/widgets/cart_bottom_section_widget.dart';
+import 'package:food/features/cart/presentation/views/widgets/cart_item_widget.dart';
 
 class MyCartView extends StatefulWidget {
   const MyCartView({super.key});
