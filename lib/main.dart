@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:food/core/routes/app_routes.dart';
+import 'package:food/features/auth/viewmodel/auth_cubit.dart';
 import 'package:food/firebase_options.dart';
-import 'package:food/feature/auth/viewmodel/auth_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
