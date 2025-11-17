@@ -3,6 +3,8 @@ import 'package:food/features/profile/presentation/views/widgets/add_new_address
 import 'package:food/features/profile/presentation/views/widgets/location_widget.dart';
 
 class AddNewAddressView extends StatelessWidget {
+  const AddNewAddressView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

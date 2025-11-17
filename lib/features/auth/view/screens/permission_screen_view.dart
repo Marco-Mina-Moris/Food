@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food/core/utils/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:food/core/constants/assets_constants.dart';
@@ -35,7 +36,7 @@ class PermissionScreen extends StatelessWidget {
             const SizedBox(height: 24),
             MaterialButton(
               onPressed: () => _requestLocationPermission(context),
-              color: const Color(0xffFF7622),
+              color:  AppColors.orange,
               height: 60,
               minWidth: double.infinity,
               shape: RoundedRectangleBorder(

@@ -4,7 +4,16 @@ import 'package:food/features/auth/view/screens/forgot_password_view.dart';
 import 'package:food/features/auth/view/screens/login_screen_view.dart';
 import 'package:food/features/auth/view/screens/permission_screen_view.dart';
 import 'package:food/features/auth/view/screens/sign_up_screen_view.dart';
+import 'package:food/features/cart/presentation/views/my_cart_view.dart';
+import 'package:food/features/my_orders/presentation/views/my_orders_view.dart';
 import 'package:food/features/onboarding/onboarding_screen.dart';
+import 'package:food/features/payment/presentation/views/add_new_card_view.dart';
+import 'package:food/features/payment/presentation/views/congratulation_view.dart';
+import 'package:food/features/payment/presentation/views/payment_view.dart';
+import 'package:food/features/profile/presentation/views/add_new_address_view.dart';
+import 'package:food/features/profile/presentation/views/address_view.dart';
+import 'package:food/features/profile/presentation/views/edit_profile_view.dart';
+import 'package:food/features/profile/presentation/views/profile_view.dart';
 import 'package:food/features/splash/splash_screen.dart';
 
 class AppRoutes {
@@ -105,15 +114,15 @@ class AppRoutes {
 
       // Order Flow Routes
       case cart:
-      // return _createSlideRoute(const CartScreen());
+      return _createSlideRoute(const MyCartView());
       case checkout:
-      // return _createRoute(const CheckoutScreen());
+      return _createRoute(const MyOrdersView());
       case payment:
-      // return _createRoute(const PaymentScreen());
+      return _createRoute(const PaymentView());
       case addCard:
-      // return _createSlideRoute(const AddCardScreen());
+      return _createSlideRoute(const AddNewCardView());
       case paymentSuccess:
-      // return _createFadeRoute(const PaymentSuccessScreen());
+      return _createFadeRoute(const CongratulationView());
       case deliveryTracking:
       // return _createRoute(
       //   DeliveryTrackingScreen(orderId: arguments as String? ?? ''),
@@ -129,13 +138,13 @@ class AppRoutes {
       case menu:
       // return _createRoute(const MenuScreen());
       case profile:
-      // return _createRoute(const ProfileScreen());
+      return _createRoute(const ProfileView());
       case editProfile:
-      // return _createRoute(const EditProfileScreen());
+      return _createRoute(const EditProfileView());
       case address:
-      // return _createRoute(const AddressScreen());
+      return _createRoute(const AddressView());
       case addNewAddress:
-      // return _createSlideRoute(const AddNewAddressScreen());
+      return _createSlideRoute(const AddNewAddressView());
 
       // Chef Routes
       case chefDashboard:

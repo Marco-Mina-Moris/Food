@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food/core/common/widget/custom_button.dart';
-import 'package:food/core/common/widget/custom_form_text_fiel.dart';
+import 'package:food/core/common/widget/custom_form_text_field.dart';
 import 'package:food/core/constants/assets_constants.dart';
 import 'package:food/core/utils/validator_functions.dart';
 import 'package:food/features/auth/view/widget/auth_layout_widget.dart';

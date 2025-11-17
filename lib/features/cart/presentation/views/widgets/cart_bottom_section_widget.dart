@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food/core/common/widget/custom_button.dart';
-import 'package:food/core/common/widget/custom_form_text_fiel.dart';
+import 'package:food/core/common/widget/custom_form_text_field.dart';
 import 'package:food/core/utils/app_assets.dart';
 import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/app_strings.dart';
