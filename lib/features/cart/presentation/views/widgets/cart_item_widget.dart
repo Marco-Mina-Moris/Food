@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food/core/utils/app_assets.dart';
 import 'package:food/core/utils/app_text_style.dart';
-import 'package:food/features/my_cart/presentation/views/widgets/custom_add_remove_quantity_widget.dart';
+import 'package:food/features/cart/presentation/views/widgets/custom_add_remove_quantity_widget.dart';
 
 class CartItemWidget extends StatelessWidget {
   const CartItemWidget({super.key});

@@ -1,13 +1,13 @@
 // CartBottomSection Widget
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:food/core/common/widget/Custom_button.dart';
+import 'package:food/core/common/widget/custom_button.dart';
 import 'package:food/core/common/widget/custom_form_text_fiel.dart';
 import 'package:food/core/utils/app_assets.dart';
 import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/app_strings.dart';
 import 'package:food/core/utils/app_text_style.dart';
-import 'package:food/features/my_cart/presentation/views/widgets/custom_total_widget.dart';
+import 'package:food/features/cart/presentation/views/widgets/custom_total_widget.dart';
 import 'package:food/features/payment/presentation/views/payment_view.dart';
 
 class CartBottomSectionWidget extends StatelessWidget {
