@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:food/core/utils/app_assets.dart';
+import 'package:food/core/utils/app_colors.dart';
+import 'package:food/core/utils/app_text_style.dart';
+
+class CustomAppBarWidget extends StatelessWidget {
+  const CustomAppBarWidget({
+    super.key,
+    required this.title,
+    this.trailing,
+    this.ontap,
+    this.backColor,
+    this.leadingImage,
+    this.textstyle,
+    this.ontapBack, // Optional trailing widget
+  });
+
+  final String title;
+  final Widget? trailing; // Can be null, an SVG, or a Text button
+  final void Function()? ontap;
+  final void Function()? ontapBack;
+  final Color? backColor;
+  final String? leadingImage;
+  final TextStyle? textstyle;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        GestureDetector(
+          onTap: ontapBack,
+          child: CircleAvatar(
+            backgroundColor:
+                backColor ?? AppColors.lightGrayishBlue, // Assuming #A0A5BA
+            radius: 24,
+            child: SvgPicture.asset(
+              leadingImage ?? Assets.assetsImagesBack,
+              fit: BoxFit.cover,
+              width: 10,
+              height: 15,
+            ),
+          ),
+        ),
+        const Spacer(flex: 1),
+        Text(
+          title,
+          style:
+              textstyle ??
+              AppTextStyle.sen400Style17.copyWith(
+                color: AppColors.veryDarkBlue,
+                fontSize: 20,
+              ),
+        ),
+        const Spacer(flex: 8),
+        GestureDetector(
+          onTap: ontap,
+          child: trailing ?? SvgPicture.asset(Assets.assetsImagesMore),
+        ), // Fallback to "more" icon if trailing is null
+      ],
+    );
+  }
+}

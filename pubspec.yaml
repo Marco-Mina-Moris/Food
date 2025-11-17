@@ -16,18 +16,23 @@ dependencies:
   google_fonts: ^6.3.1
   toastification: ^3.0.3
   shared_preferences: ^2.5.3
+  flutter_svg: ^2.2.2
+  input_quantity: ^2.5.1
+  item_count_number_button: ^1.9.2
+  timeline_tile: ^2.0.0
   animate_do: ^4.2.0
   smooth_page_indicator: ^1.2.1
   font_awesome_flutter: ^10.9.1
   pinput: ^5.0.2
-  firebase_core: ^4.1.0
-  firebase_auth: ^6.0.2
-  cloud_firestore: ^6.0.1
-  bloc: ^9.0.0
+  flutter_animate: ^4.5.2
   flutter_bloc: ^9.1.1
+  bloc: ^9.1.0
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
+  cloud_firestore: ^6.1.0
   google_sign_in: ^6.2.1
   permission_handler: ^12.0.1
-  flutter_facebook_auth: ^7.1.2
+
 
 dev_dependencies:
   flutter_test:
@@ -48,3 +53,14 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+
+  fonts:
+    - family: Sen
+      fonts:
+        - asset: assets/fonts/sen-regular.otf
+        
+      
+flutter_assets:
+  assets_path: assets/images/
+  output_path: lib/core/utils/
+  filename: app_assets.dart
