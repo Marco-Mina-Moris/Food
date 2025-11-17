@@ -18,7 +18,7 @@ abstract class AssetsConstants {
   static const String eyeOff = 'assets/icons/eye-off.png';
   static const String back = 'assets/icons/arrow_back.png';
   static const String google = 'assets/icons/google.png';
-  static const String facebook = 'assets/icons/facebook.png';
+  static const String facebook = 'assets/icons/facebook_v2.png';
   static const String twitter = 'assets/icons/twitter.png';
   static const String apple = 'assets/icons/apple.png';
   static const String location = 'assets/icons/map_pin.png';

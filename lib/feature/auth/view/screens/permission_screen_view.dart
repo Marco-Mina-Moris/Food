@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:food/core/common/widget/custom_button.dart';
-import 'package:food/core/constants/assets_constants.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:food/core/constants/assets_constants.dart';
 
 class PermissionScreen extends StatelessWidget {
   const PermissionScreen({super.key});
+
+  Future<void> _requestLocationPermission(BuildContext context) async {
+    final status = await Permission.location.request();
+    if (status.isGranted) {
+      Navigator.pushReplacementNamed(context, '/home');
+    } else if (status.isDenied) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Location permission is required")),
+      );
+    } else if (status.isPermanentlyDenied) {
+      openAppSettings();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +32,10 @@ class PermissionScreen extends StatelessWidget {
               width: 300,
               height: 300,
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             MaterialButton(
-              onPressed: () {},
-              color: Color(0xffFF7622),
+              onPressed: () => _requestLocationPermission(context),
+              color: const Color(0xffFF7622),
               height: 60,
               minWidth: double.infinity,
               shape: RoundedRectangleBorder(
@@ -39,7 +52,7 @@ class PermissionScreen extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Image.asset(
                     AssetsConstants.location,
                     color: Colors.white,
@@ -49,12 +62,12 @@ class PermissionScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 38),
+            const SizedBox(height: 38),
             Text(
               'FOOD WILL ACCESS YOUR LOCATION ONLY WHILE USING THE APP',
               textAlign: TextAlign.center,
               style: GoogleFonts.sen(
-                color: Color(0xff646982),
+                color: const Color(0xff646982),
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
               ),

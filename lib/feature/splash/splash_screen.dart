@@ -22,14 +22,12 @@ class _SplashScreenState extends State<SplashScreen> {
         });
       }
     });
-
     Future.delayed(const Duration(seconds: 4), () {
       if (mounted) {
         Navigator.pushReplacementNamed(context, '/onboarding');
       }
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +44,6 @@ class _SplashScreenState extends State<SplashScreen> {
               fit: BoxFit.contain,
             ),
           ),
-
           Center(
             child: FadeInLeft(
               duration: const Duration(milliseconds: 800),

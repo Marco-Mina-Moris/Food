@@ -8,6 +8,20 @@
 	<string>Food</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<!--Copied from GoogleService-Info.plist key CLIENT_ID-->
+	<string>148660068146-cjlju7ba74m2k35hsvhivg5gjol664cm.apps.googleusercontent.com</string>
+	<!-- Google Sign-in Section -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<!--Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID-->
+				<string>com.googleusercontent.apps.148660068146-cjlju7ba74m2k35hsvhivg5gjol664cm</string>
+			</array>
+		</dict>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>

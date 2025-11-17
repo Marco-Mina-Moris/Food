@@ -1,21 +1,28 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food/core/routes/app_routes.dart';
+import 'package:food/firebase_options.dart';
+import 'package:food/feature/auth/viewmodel/auth_cubit.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const FoodDeliveryApp());
 }
 
 class FoodDeliveryApp extends StatelessWidget {
   const FoodDeliveryApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Food Delivery App',
-      initialRoute: AppRoutes.splash,
-      onGenerateRoute: AppRoutes.generateRoute,
+    return MultiBlocProvider(
+      providers: [BlocProvider(create: (_) => AuthCubit())],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Food Delivery App',
+        initialRoute: AppRoutes.splash,
+        onGenerateRoute: AppRoutes.generateRoute,
+      ),
     );
   }
 }
