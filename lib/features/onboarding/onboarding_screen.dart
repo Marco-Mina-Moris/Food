@@ -3,6 +3,7 @@ import 'package:food/core/common/animation/custom_animated_widget.dart';
 import 'package:food/core/common/widget/custom_button.dart';
 import 'package:food/core/constants/assets_constants.dart';
 import 'package:food/core/utils/app_colors.dart';
+import 'package:food/features/tracking_order/presentation/views/tracking_order_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -112,7 +113,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     curve: Curves.easeIn,
                   );
                 } else {
-                  Navigator.pushReplacementNamed(context, '/login');
+                  // Navigator.pushReplacementNamed(context, '/login');
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => TrackingOrderView()),
+                  );
                 }
               },
             ),

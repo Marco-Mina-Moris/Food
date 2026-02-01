@@ -9,7 +9,8 @@
         android:name="${applicationName}"
         android:label="Food Delivery"
         android:icon="@mipmap/ic_launcher">
-
+         <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBjnD_kE2dKLfUAvLo9NExh-PujH3ngXVY"/>
         <!-- Flutter main activity -->
         <activity
             android:name=".MainActivity"
