@@ -6,6 +6,7 @@ import 'package:food/features/home/view/screens/recipe_details_screen.dart';
 import 'package:food/features/home/view/widgets/build_category.dart';
 import 'package:food/features/home/view_model/home_cubit.dart';
 
+import 'package:food/core/storage_helper/cart_manager.dart';
 import '../../model/response/restaurants_response.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,6 +17,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    CartManager.updateCartCount();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,13 +53,56 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   Spacer(),
-                  CircleAvatar(
-                    child: Icon(
-                      Icons.shopping_bag_outlined,
-                      color: Colors.white,
-                    ),
-                    backgroundColor: AppColors.darkBackground,
-                    radius: 25,
+                  ValueListenableBuilder<int>(
+                    valueListenable: CartManager.cartCountNotifier,
+                    builder: (context, count, child) {
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/cart').then((_) {
+                            CartManager.updateCartCount();
+                          });
+                        },
+                        child: Stack(
+                          clipBehavior: Clip.none,
+                          children: [
+                            CircleAvatar(
+                              child: const Icon(
+                                Icons.shopping_bag_outlined,
+                                color: Colors.white,
+                              ),
+                              backgroundColor: AppColors.darkBackground,
+                              radius: 25,
+                            ),
+                            if (count > 0)
+                              Positioned(
+                                right: -4,
+                                top: -4,
+                                child: Container(
+                                  padding: const EdgeInsets.all(4),
+                                  decoration: const BoxDecoration(
+                                    color: Colors.red,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  constraints: const BoxConstraints(
+                                    minWidth: 18,
+                                    minHeight: 18,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      '$count',
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                          ],
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),

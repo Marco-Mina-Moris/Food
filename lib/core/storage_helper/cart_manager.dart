@@ -1,8 +1,21 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CartManager {
   static const String _cartKey = 'cart_items';
+  
+  static final ValueNotifier<int> cartCountNotifier = ValueNotifier<int>(0);
+
+  // Initialize and update the cart count notifier
+  static Future<void> updateCartCount() async {
+    final items = await getCartItems();
+    int count = 0;
+    for (var item in items) {
+      count += (item['quantity'] as num?)?.toInt() ?? 1;
+    }
+    cartCountNotifier.value = count;
+  }
 
   // Get list of cart items
   static Future<List<Map<String, dynamic>>> getCartItems() async {
@@ -42,6 +55,7 @@ class CartManager {
     }
 
     await prefs.setString(_cartKey, jsonEncode(cartItems));
+    await updateCartCount();
   }
 
   // Remove item from cart
@@ -54,6 +68,7 @@ class CartManager {
     );
 
     await prefs.setString(_cartKey, jsonEncode(cartItems));
+    await updateCartCount();
   }
 
   // Update quantity of an item in cart
@@ -68,6 +83,7 @@ class CartManager {
     if (index >= 0) {
       cartItems[index]['quantity'] = quantity;
       await prefs.setString(_cartKey, jsonEncode(cartItems));
+      await updateCartCount();
     }
   }
 
@@ -75,5 +91,6 @@ class CartManager {
   static Future<void> clearCart() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(_cartKey);
+    await updateCartCount();
   }
 }
