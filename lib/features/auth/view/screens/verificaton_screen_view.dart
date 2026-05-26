@@ -245,7 +245,6 @@ class _VerificationScreen extends State<VerificationScreen> {
                         CustomButton(
                           text: 'Verify',
                           onPressed: () {},
-                          ontap: () {},
                         ),
                       ],
                     ),

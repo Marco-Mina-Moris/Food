@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food/feature/app_section/app_section.dart';
 import 'package:food/features/auth/view/screens/forgot_password_view.dart';
 
 import 'package:food/features/auth/view/screens/login_screen_view.dart';
@@ -90,7 +91,7 @@ class AppRoutes {
 
       // Home Routes
       case homeV1:
-      // return _createFadeRoute(const HomeV1Screen());
+        return _createFadeRoute(AppSection());
       case homeV2:
       // return _createFadeRoute(const HomeV2Screen());
       case homeV3:
