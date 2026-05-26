@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:food/feature/app_section/app_section.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food/features/app_section/app_section.dart';
 import 'package:food/features/auth/view/screens/forgot_password_view.dart';
-
 import 'package:food/features/auth/view/screens/login_screen_view.dart';
 import 'package:food/features/auth/view/screens/permission_screen_view.dart';
 import 'package:food/features/auth/view/screens/sign_up_screen_view.dart';
+import 'package:food/features/auth/view/screens/verificaton_screen_view.dart';
 import 'package:food/features/cart/presentation/views/my_cart_view.dart';
+import 'package:food/features/category_meals/view/screens/category_meals_screen.dart';
+import 'package:food/features/category_meals/view_model/category_meals_cubit.dart';
+import 'package:food/features/food_burgers/view/screens/food_burgers.dart';
+import 'package:food/features/food_details/view/screens/food_details.dart';
+import 'package:food/features/meal_details/view/screens/meal_details_screen.dart';
+import 'package:food/features/meal_details/view_model/model_detail_cubit.dart';
 import 'package:food/features/my_orders/presentation/views/my_orders_view.dart';
 import 'package:food/features/onboarding/onboarding_screen.dart';
 import 'package:food/features/payment/presentation/views/add_new_card_view.dart';
@@ -15,7 +22,9 @@ import 'package:food/features/profile/presentation/views/add_new_address_view.da
 import 'package:food/features/profile/presentation/views/address_view.dart';
 import 'package:food/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:food/features/profile/presentation/views/profile_view.dart';
+import 'package:food/features/restaurant_view/view/screens/restaurant_view.dart';
 import 'package:food/features/splash/splash_screen.dart';
+import 'package:food/features/tracking_order/presentation/views/tracking_order_view.dart';
 
 class AppRoutes {
   // User Routes
@@ -35,7 +44,10 @@ class AppRoutes {
 
   // Food & Restaurant Routes
   static const String foodDetails = '/food-details';
+  static const String foodBurgers = '/food-burgers';
   static const String restaurant = '/restaurant';
+  static const String categoryMeals = '/category-meals';
+  static const String mealDetails = '/meal-details';
   static const String filter = '/filter';
   static const String offer = '/offer';
 
@@ -73,7 +85,7 @@ class AppRoutes {
     final arguments = settings.arguments;
 
     switch (settings.name) {
-      // Auth Routes
+      // ==================== Auth Routes ====================
       case splash:
         return _createRoute(const SplashScreen());
       case onboarding:
@@ -83,93 +95,67 @@ class AppRoutes {
       case signup:
         return _createRoute(SignUpScreen());
       case forgotPassword:
-        return _createRoute( ForgotPasswordScreen());
-      // case verification:
-      //   return _createRoute(const VerificationScreen());
+        return _createRoute(ForgotPasswordScreen());
+      case verification:
+        return _createRoute(const VerificationScreen());
       case resetPassword:
         return _createRoute(const PermissionScreen());
 
-      // Home Routes
+      // ==================== Home Routes ====================
       case homeV1:
         return _createFadeRoute(AppSection());
-      case homeV2:
-      // return _createFadeRoute(const HomeV2Screen());
-      case homeV3:
-      // return _createFadeRoute(const HomeV3Screen());
-      case search:
-      // return _createRoute(const SearchScreen());
 
-      // Food & Restaurant Routes
+      // ==================== Food & Restaurant Routes ====================
       case foodDetails:
-      // return _createSlideRoute(
-      //   FoodDetailsScreen(foodId: arguments as String? ?? ''),
-      // );
+        return _createSlideRoute(FoodDetails());
+      case foodBurgers:
+        return _createSlideRoute(FoodBurgers());
       case restaurant:
-      // return _createRoute(
-      //   RestaurantScreen(restaurantId: arguments as String? ?? ''),
-      // );
-      case filter:
-      // return _createSlideRoute(const FilterScreen());
-      case offer:
-      // return _createRoute(const OfferScreen());
+        return _createSlideRoute(const RestaurantView());
+      case categoryMeals:
+        final categoryName = arguments as String? ?? 'Category';
+        return _createSlideRoute(
+          BlocProvider<CategoryMealsCubit>(
+            create: (context) => CategoryMealsCubit()..getCategoriesMeals(categoryName),
+            child: CategoryMealsScreen(categoryName: categoryName),
+          ),
+        );
+      case mealDetails:
+        final mealId = arguments as String? ?? '';
+        return _createSlideRoute(
+          BlocProvider<ModelDetailCubit>(
+            create: (context) => ModelDetailCubit()..getModelDetail(mealId),
+            child: MealDetailsScreen(mealId: mealId),
+          ),
+        );
 
-      // Order Flow Routes
+      // ==================== Order Flow Routes ====================
       case cart:
-      return _createSlideRoute(const MyCartView());
+        return _createSlideRoute(const MyCartView());
       case checkout:
-      return _createRoute(const MyOrdersView());
+        return _createRoute(const MyOrdersView());
       case payment:
-      return _createRoute(const PaymentView());
+        return _createRoute(const PaymentView());
       case addCard:
-      return _createSlideRoute(const AddNewCardView());
+        return _createSlideRoute(const AddNewCardView());
       case paymentSuccess:
-      return _createFadeRoute(const CongratulationView());
+        return _createFadeRoute(const CongratulationView());
       case deliveryTracking:
-      // return _createRoute(
-      //   DeliveryTrackingScreen(orderId: arguments as String? ?? ''),
-      // );
+        return _createRoute(const TrackingOrderView());
 
-      // User Profile Routes
+      // ==================== User Profile Routes ====================
       case myOrders:
-      // return _createRoute(const MyOrdersScreen());
-      case orderDetails:
-      // return _createRoute(
-      //   OrderDetailsScreen(orderId: arguments as String? ?? ''),
-      // );
-      case menu:
-      // return _createRoute(const MenuScreen());
+        return _createRoute(const MyOrdersView());
       case profile:
-      return _createRoute(const ProfileView());
+        return _createRoute(const ProfileView());
       case editProfile:
-      return _createRoute(const EditProfileView());
+        return _createRoute(const EditProfileView());
       case address:
-      return _createRoute(const AddressView());
+        return _createRoute(const AddressView());
       case addNewAddress:
-      return _createSlideRoute(const AddNewAddressView());
+        return _createSlideRoute(const AddNewAddressView());
 
-      // Chef Routes
-      case chefDashboard:
-      // return _createFadeRoute(const ChefDashboardScreen());
-      case chefOrders:
-      // return _createRoute(const ChefOrdersScreen());
-      case myFood:
-      // return _createRoute(const MyFoodScreen());
-      case addMenu:
-      // return _createSlideRoute(const AddMenuScreen());
-      case chefProfile:
-      // return _createRoute(const ChefProfileScreen());
-      case menuManagement:
-      // return _createRoute(const MenuManagementScreen());
-      case paymentHistory:
-      // return _createRoute(const PaymentHistoryScreen());
-      case notifications:
-      // return _createRoute(const NotificationsScreen());
-      case analytics:
-      // return _createRoute(const AnalyticsScreen());
-      case reviews:
-      // return _createRoute(const ReviewsScreen());
-
-      // 404 Route
+      // ==================== 404 Route ====================
       default:
         return _createRoute(
           Scaffold(
@@ -234,7 +220,7 @@ class AppRoutes {
     );
   }
 
-  // Navigation Helper Methods
+  // ==================== Navigation Helper Methods ====================
 
   // User Navigation
   static void navigateToHome(BuildContext context) {
@@ -245,8 +231,20 @@ class AppRoutes {
     Navigator.pushReplacementNamed(context, login);
   }
 
-  static void navigateToFoodDetails(BuildContext context, String foodId) {
-    Navigator.pushNamed(context, foodDetails, arguments: foodId);
+  static void navigateToFoodDetails(BuildContext context) {
+    Navigator.pushNamed(context, foodDetails);
+  }
+
+  static void navigateToRestaurant(BuildContext context) {
+    Navigator.pushNamed(context, restaurant);
+  }
+
+  static void navigateToCategoryMeals(BuildContext context, String categoryName) {
+    Navigator.pushNamed(context, categoryMeals, arguments: categoryName);
+  }
+
+  static void navigateToMealDetails(BuildContext context, String mealId) {
+    Navigator.pushNamed(context, mealDetails, arguments: mealId);
   }
 
   static void navigateToCart(BuildContext context) {
@@ -261,8 +259,8 @@ class AppRoutes {
     Navigator.pushNamed(context, payment);
   }
 
-  static void navigateToDeliveryTracking(BuildContext context, String orderId) {
-    Navigator.pushNamed(context, deliveryTracking, arguments: orderId);
+  static void navigateToDeliveryTracking(BuildContext context) {
+    Navigator.pushNamed(context, deliveryTracking);
   }
 
   // Chef Navigation

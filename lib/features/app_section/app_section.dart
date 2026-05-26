@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food/features/home/view_model/home_cubit.dart';
 
-import '../../features/favorite/favorite_screen.dart';
-import '../../features/home/view/screens/home_screen.dart';
-import '../../features/my_orders/presentation/views/my_orders_view.dart';
-import '../../features/profile/presentation/views/profile_view.dart';
+import '../favorite/favorite_screen.dart';
+import '../home/view/screens/home_screen.dart';
+import '../my_orders/presentation/views/my_orders_view.dart';
+import '../profile/presentation/views/profile_view.dart';
 
 class AppSection extends StatefulWidget {
   AppSection({super.key});
