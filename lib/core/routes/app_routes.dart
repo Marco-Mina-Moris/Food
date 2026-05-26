@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food/features/app_section/app_section.dart';
+import 'package:food/features/auth/viewmodel/auth_cubit.dart';
 import 'package:food/features/auth/view/screens/forgot_password_view.dart';
 import 'package:food/features/auth/view/screens/login_screen_view.dart';
 import 'package:food/features/auth/view/screens/permission_screen_view.dart';
@@ -91,11 +92,26 @@ class AppRoutes {
       case onboarding:
         return _createSlideRoute(const OnboardingScreen());
       case login:
-        return _createRoute(LoginScreen());
+        return _createRoute(
+          BlocProvider<AuthCubit>(
+            create: (context) => AuthCubit(),
+            child: LoginScreen(),
+          ),
+        );
       case signup:
-        return _createRoute(SignUpScreen());
+        return _createRoute(
+          BlocProvider<AuthCubit>(
+            create: (context) => AuthCubit(),
+            child: SignUpScreen(),
+          ),
+        );
       case forgotPassword:
-        return _createRoute(ForgotPasswordScreen());
+        return _createRoute(
+          BlocProvider<AuthCubit>(
+            create: (context) => AuthCubit(),
+            child: ForgotPasswordScreen(),
+          ),
+        );
       case verification:
         return _createRoute(const VerificationScreen());
       case resetPassword:
