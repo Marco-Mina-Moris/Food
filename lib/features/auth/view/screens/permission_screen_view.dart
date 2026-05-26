@@ -10,7 +10,7 @@ class PermissionScreen extends StatelessWidget {
   Future<void> _requestLocationPermission(BuildContext context) async {
     final status = await Permission.location.request();
     if (status.isGranted) {
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/home-v1');
     } else if (status.isDenied) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Location permission is required")),
