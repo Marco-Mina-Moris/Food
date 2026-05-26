@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:food/core/common/widget/custom_button.dart';
 import 'package:food/core/constants/assets_constants.dart';
@@ -241,7 +242,11 @@ class _VerificationScreen extends State<VerificationScreen> {
                         ),
                         SizedBox(height: 30),
                         // Send Code button
-                        CustomButton(text: 'Verify', onPressed: () {}),
+                        CustomButton(
+                          text: 'Verify',
+                          onPressed: () {},
+                          ontap: () {},
+                        ),
                       ],
                     ),
                   ),
