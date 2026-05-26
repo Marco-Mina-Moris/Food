@@ -28,12 +28,6 @@ defaultConfig {
     targetSdk = 34
     versionCode = flutter.versionCode
     versionName = flutter.versionName
-
-    manifestPlaceholders.putAll(
-        mapOf(
-            "facebookAppId" to "1526636875002342"
-        )
-    )
 }
 
 
