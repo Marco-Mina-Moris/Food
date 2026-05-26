@@ -28,7 +28,7 @@ class CustomAppBarWidget extends StatelessWidget {
     return Row(
       children: [
         GestureDetector(
-          onTap: ontapBack,
+          onTap: ontapBack ?? () => Navigator.maybePop(context),
           child: CircleAvatar(
             backgroundColor:
                 backColor ?? AppColors.lightGrayishBlue, // Assuming #A0A5BA

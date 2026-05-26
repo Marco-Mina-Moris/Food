@@ -34,12 +34,15 @@ class LocationWidget extends StatelessWidget {
           Positioned(
             top: 50,
             left: 14,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                SvgPicture.asset(Assets.assetsImagesArrowBackground),
-                SvgPicture.asset(Assets.assetsImagesBackwhite),
-              ],
+            child: GestureDetector(
+              onTap: () => Navigator.maybePop(context),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  SvgPicture.asset(Assets.assetsImagesArrowBackground),
+                  SvgPicture.asset(Assets.assetsImagesBackwhite),
+                ],
+              ),
             ),
           ),
         ],
