@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:food/core/utils/app_colors.dart';
+import 'package:food/core/storage_helper/cart_manager.dart';
 import 'package:food/features/meal_details/view/widgets/meal_detail_widget.dart';
 import 'package:food/features/meal_details/view_model/model_detail_cubit.dart';
 
@@ -164,14 +167,14 @@ class _MealDetailsScreenState extends State<MealDetailsScreen> {
               (basePrice * sizePrices[selectedSize]!["multiplier"]!) * quantity;
 
           return Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             decoration: BoxDecoration(
-              color: Colors.grey,
+              color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 5,
-                  offset: const Offset(0, -2),
+                  color: Colors.black.withOpacity(0.08),
+                  blurRadius: 15,
+                  offset: const Offset(0, -4),
                 ),
               ],
             ),
@@ -180,46 +183,104 @@ class _MealDetailsScreenState extends State<MealDetailsScreen> {
               children: [
                 Text(
                   "\$$totalPrice",
-                  style: const TextStyle(
-                    fontSize: 22,
+                  style: GoogleFonts.sen(
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
+                    color: AppColors.veryDarkBlue,
                   ),
                 ),
-
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          if (quantity > 1) {
-                            setState(() {
-                              quantity--;
-                            });
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Quantity Counter Pill
+                    Container(
+                      height: 48,
+                      decoration: BoxDecoration(
+                        color: AppColors.bluegray,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              if (quantity > 1) {
+                                  setState(() {
+                                    quantity--;
+                                  });
+                              }
+                            },
+                            icon: const Icon(Icons.remove, color: Colors.white, size: 16),
+                          ),
+                          Text(
+                            "$quantity",
+                            style: GoogleFonts.sen(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                quantity++;
+                              });
+                            },
+                            icon: const Icon(Icons.add, color: Colors.white, size: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    // Add To Cart Button
+                    SizedBox(
+                      height: 48,
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          final fakeData = mockData[meal.strCategory] ?? mockData["default"]!;
+                          final price = (fakeData["price"] as num).toDouble() * sizePrices[selectedSize]!["multiplier"]!;
+                          
+                          await CartManager.addToCart({
+                            'idMeal': meal.idMeal,
+                            'strMeal': meal.strMeal,
+                            'strMealThumb': meal.strMealThumb,
+                            'price': price,
+                            'quantity': quantity,
+                            'size': selectedSize,
+                          });
+                          
+                          if (context.mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "${meal.strMeal} added to cart!",
+                                  style: GoogleFonts.sen(color: Colors.white),
+                                ),
+                                backgroundColor: AppColors.green,
+                                duration: const Duration(seconds: 2),
+                              ),
+                            );
                           }
                         },
-                        icon: const Icon(Icons.remove, color: Colors.white),
-                      ),
-                      Text(
-                        "$quantity",
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.orange,
+                          elevation: 0,
+                          shadowColor: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24),
+                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 24),
+                        ),
+                        child: Text(
+                          "ADD TO CART",
+                          style: GoogleFonts.sen(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            quantity++;
-                          });
-                        },
-                        icon: const Icon(Icons.add, color: Colors.white),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),

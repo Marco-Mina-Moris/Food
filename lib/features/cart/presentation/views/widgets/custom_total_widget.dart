@@ -4,8 +4,11 @@ import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/app_text_style.dart';
 
 class CustomTotalWidget extends StatelessWidget {
+  final double totalPrice;
+
   const CustomTotalWidget({
     super.key,
+    required this.totalPrice,
   });
 
   @override
@@ -21,7 +24,7 @@ class CustomTotalWidget extends StatelessWidget {
           ),
           SizedBox(width: 12),
           Text(
-            '\$96',
+            '\$${totalPrice.toStringAsFixed(2)}',
             style: AppTextStyle.sen400Style12.copyWith(
               fontSize: 30,
               color: AppColors.veryDarkBlue,

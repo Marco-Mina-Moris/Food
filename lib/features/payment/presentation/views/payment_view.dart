@@ -10,7 +10,8 @@ import 'package:food/features/payment/presentation/views/widgets/custom_payment_
 import 'package:food/features/payment/presentation/views/widgets/no_master_card_placeholder_widget.dart';
 
 class PaymentView extends StatefulWidget {
-  const PaymentView({super.key});
+  final double totalPrice;
+  const PaymentView({super.key, required this.totalPrice});
 
   @override
   State<PaymentView> createState() => _PaymentViewState();
@@ -103,7 +104,7 @@ class _PaymentViewState extends State<PaymentView> {
               },
             ),
             Spacer(),
-            CustomTotalWidget(),
+            CustomTotalWidget(totalPrice: widget.totalPrice),
             SizedBox(height: 30),
             CustomButton(text: AppStrings.payConfirm, onPressed: () {}),
             SizedBox(height: 30),

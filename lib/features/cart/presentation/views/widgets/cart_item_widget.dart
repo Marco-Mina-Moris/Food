@@ -1,60 +1,170 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:food/core/utils/app_assets.dart';
+import 'package:food/core/utils/app_colors.dart';
 import 'package:food/core/utils/app_text_style.dart';
-import 'package:food/features/cart/presentation/views/widgets/custom_add_remove_quantity_widget.dart';
 
 class CartItemWidget extends StatelessWidget {
-  const CartItemWidget({super.key});
+  final Map<String, dynamic> item;
+  final VoidCallback onIncrement;
+  final VoidCallback onDecrement;
+  final VoidCallback onRemove;
+
+  const CartItemWidget({
+    super.key,
+    required this.item,
+    required this.onIncrement,
+    required this.onDecrement,
+    required this.onRemove,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final strMeal = item['strMeal'] ?? '';
+    final strMealThumb = item['strMealThumb'] ?? '';
+    final price = (item['price'] as num?)?.toDouble() ?? 0.0;
+    final quantity = (item['quantity'] as num?)?.toInt() ?? 1;
+    final size = item['size'] ?? 'Medium';
+
     return Container(
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: [
+          // Food Image
           Container(
-            height: 117,
-            width: 136,
+            height: 100,
+            width: 100,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                  'https://th.bing.com/th/id/OSK.748012898bc01cf64b5c6e566a693d07?w=200&h=126&c=7&rs=1&qlt=80&o=6&cdv=1&pid=16.1',
-                ),
+                image: NetworkImage(strMealThumb),
+                onError: (exception, stackTrace) {},
               ),
             ),
           ),
-          SizedBox(width: 20),
+          const SizedBox(width: 16),
+          // Details & Actions
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      height: 44,
-                      width: 126,
+                    Expanded(
                       child: Text(
-                        'pizza calzone european',
-                        style: AppTextStyle.sen400Style17.copyWith(
+                        strMeal,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.sen(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
                           color: Colors.white,
                         ),
                       ),
                     ),
-                    SvgPicture.asset(Assets.assetsImagesCross),
+                    const SizedBox(width: 8),
+                    GestureDetector(
+                      onTap: onRemove,
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: SvgPicture.asset(
+                          Assets.assetsImagesCross,
+                          colorFilter: const ColorFilter.mode(
+                            Colors.white,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 8),
                 Text(
-                  '\$64',
-                  style: AppTextStyle.sen700Style20.copyWith(
+                  '\$${(price * quantity).toStringAsFixed(2)}',
+                  style: GoogleFonts.sen(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 17),
-                CustomAddAndRemoveQuantityWidget(),
+                const SizedBox(height: 12),
+                // Size & Quantity Selector Row
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Size: $size',
+                      style: GoogleFonts.sen(
+                        fontSize: 14,
+                        color: AppColors.lavenderGray,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        // Decrement Button
+                        GestureDetector(
+                          onTap: onDecrement,
+                          child: Container(
+                            height: 32,
+                            width: 32,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.bluegray,
+                            ),
+                            child: Center(
+                              child: SvgPicture.asset(
+                                Assets.assetsImagesSubtract,
+                                height: 3,
+                                width: 10,
+                                colorFilter: const ColorFilter.mode(
+                                  Colors.white,
+                                  BlendMode.srcIn,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        Text(
+                          quantity.toString(),
+                          style: GoogleFonts.sen(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        // Increment Button
+                        GestureDetector(
+                          onTap: onIncrement,
+                          child: Container(
+                            height: 32,
+                            width: 32,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.bluegray,
+                            ),
+                            child: Center(
+                              child: SvgPicture.asset(
+                                Assets.assetsImagesAdd,
+                                height: 12,
+                                width: 12,
+                                colorFilter: const ColorFilter.mode(
+                                  Colors.white,
+                                  BlendMode.srcIn,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

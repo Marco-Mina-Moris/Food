@@ -11,12 +11,16 @@ import 'package:food/features/cart/presentation/views/widgets/custom_total_widge
 import 'package:food/features/payment/presentation/views/payment_view.dart';
 
 class CartBottomSectionWidget extends StatelessWidget {
+  final double totalPrice;
+
+  const CartBottomSectionWidget({super.key, required this.totalPrice});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 300,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(24),
@@ -57,7 +61,7 @@ class CartBottomSectionWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomTotalWidget(),
+                CustomTotalWidget(totalPrice: totalPrice),
 
                 GestureDetector(
                   child: SvgPicture.asset(
@@ -77,7 +81,7 @@ class CartBottomSectionWidget extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (_) {
-                      return PaymentView();
+                      return PaymentView(totalPrice: totalPrice);
                     },
                   ),
                 );

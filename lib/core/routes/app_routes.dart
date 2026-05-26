@@ -8,6 +8,7 @@ import 'package:food/features/auth/view/screens/permission_screen_view.dart';
 import 'package:food/features/auth/view/screens/sign_up_screen_view.dart';
 import 'package:food/features/auth/view/screens/verificaton_screen_view.dart';
 import 'package:food/features/cart/presentation/views/my_cart_view.dart';
+import 'package:food/features/cart/presentation/view_model/cart_cubit.dart';
 import 'package:food/features/category_meals/view/screens/category_meals_screen.dart';
 import 'package:food/features/category_meals/view_model/category_meals_cubit.dart';
 import 'package:food/features/food_burgers/view/screens/food_burgers.dart';
@@ -147,11 +148,17 @@ class AppRoutes {
 
       // ==================== Order Flow Routes ====================
       case cart:
-        return _createSlideRoute(const MyCartView());
+        return _createSlideRoute(
+          BlocProvider<CartCubit>(
+            create: (context) => CartCubit()..loadCart(),
+            child: const MyCartView(),
+          ),
+        );
       case checkout:
         return _createRoute(const MyOrdersView());
       case payment:
-        return _createRoute(const PaymentView());
+        final price = arguments as double? ?? 0.0;
+        return _createRoute(PaymentView(totalPrice: price));
       case addCard:
         return _createSlideRoute(const AddNewCardView());
       case paymentSuccess:
