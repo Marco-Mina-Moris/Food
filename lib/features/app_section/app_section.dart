@@ -10,6 +10,8 @@ import '../profile/presentation/views/profile_view.dart';
 class AppSection extends StatefulWidget {
   AppSection({super.key});
 
+  static final ValueNotifier<int> activeTabNotifier = ValueNotifier<int>(0);
+
   @override
   State<AppSection> createState() => _AppSection();
 }
@@ -27,10 +29,29 @@ class _AppSection extends State<AppSection> {
     const ProfileView(),
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = AppSection.activeTabNotifier.value;
+    AppSection.activeTabNotifier.addListener(_onActiveTabChanged);
+  }
+
+  @override
+  void dispose() {
+    AppSection.activeTabNotifier.removeListener(_onActiveTabChanged);
+    super.dispose();
+  }
+
+  void _onActiveTabChanged() {
+    if (mounted) {
+      setState(() {
+        _selectedIndex = AppSection.activeTabNotifier.value;
+      });
+    }
+  }
+
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    AppSection.activeTabNotifier.value = index;
   }
 
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:food/core/storage_helper/favorites_manager.dart';
 import '../../model/meal_detail_response.dart';
 
 class MealDetailWidget extends StatefulWidget {
@@ -32,6 +32,21 @@ class _MealDetailWidgetState extends State<MealDetailWidget> {
   int quantity = 1;
 
   @override
+  void initState() {
+    super.initState();
+    _checkIfFavorite();
+  }
+
+  Future<void> _checkIfFavorite() async {
+    final fav = await FavoritesManager.isFavorite(widget.meal.idMeal ?? '');
+    if (mounted) {
+      setState(() {
+        isFavorite = fav;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final meal = widget.meal;
 
@@ -58,9 +73,16 @@ class _MealDetailWidgetState extends State<MealDetailWidget> {
                   top: 12,
                   right: 12,
                   child: GestureDetector(
-                    onTap: () {
+                    onTap: () async {
+                      final added = await FavoritesManager.toggleFavorite(
+                        idMeal: meal.idMeal ?? '',
+                        strMeal: meal.strMeal ?? '',
+                        strMealThumb: meal.strMealThumb ?? '',
+                        strCategory: meal.strCategory,
+                        strArea: meal.strArea,
+                      );
                       setState(() {
-                        isFavorite = !isFavorite;
+                        isFavorite = added;
                       });
                     },
                     child: Container(
