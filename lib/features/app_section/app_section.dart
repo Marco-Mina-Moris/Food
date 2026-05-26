@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food/features/home/view_model/home_cubit.dart';
 
-import '../favorite/favorite_screen.dart';
+import 'package:food/features/favorite/view/screens/favorite_screen.dart';
+import 'package:food/features/favorite/view_model/favorite_cubit.dart';
 import '../home/view/screens/home_screen.dart';
 import '../my_orders/presentation/views/my_orders_view.dart';
 import '../profile/presentation/views/profile_view.dart';
@@ -25,7 +26,10 @@ class _AppSection extends State<AppSection> {
       child: HomeScreen(),
     ),
     const MyOrdersView(),
-    const FavoriteScreen(),
+    BlocProvider<FavoriteCubit>(
+      create: (context) => FavoriteCubit(),
+      child: const FavoriteScreen(),
+    ),
     const ProfileView(),
   ];
 
