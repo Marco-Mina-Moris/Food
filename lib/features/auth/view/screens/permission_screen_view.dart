@@ -3,20 +3,46 @@ import 'package:food/core/utils/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:food/core/constants/assets_constants.dart';
+import 'package:food/core/dialogs/app_toasts.dart';
+import 'package:toastification/toastification.dart';
+import 'package:food/core/storage_helper/secure_storage_helper.dart';
 
 class PermissionScreen extends StatelessWidget {
   const PermissionScreen({super.key});
 
   Future<void> _requestLocationPermission(BuildContext context) async {
     final status = await Permission.location.request();
-    if (status.isGranted) {
-      Navigator.pushReplacementNamed(context, '/home-v1');
+    if (status.isGranted || status.isLimited) {
+      final role = await SecureStorageHelper.getRole();
+      if (context.mounted) {
+        if (role == 'Chef') {
+          Navigator.pushReplacementNamed(context, '/chef/dashboard');
+        } else {
+          Navigator.pushReplacementNamed(context, '/home-v1');
+        }
+      }
     } else if (status.isDenied) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Location permission is required")),
+      AppToast.showToast(
+        context: context,
+        title: "Permission Denied",
+        description: "Location permission is required to continue.",
+        type: ToastificationType.warning,
       );
     } else if (status.isPermanentlyDenied) {
-      openAppSettings();
+      AppToast.showToast(
+        context: context,
+        title: "Permission Permanently Denied",
+        description: "Please enable location permission in app settings.",
+        type: ToastificationType.error,
+      );
+      await openAppSettings();
+    } else if (status.isRestricted) {
+      AppToast.showToast(
+        context: context,
+        title: "Permission Restricted",
+        description: "Location permission is restricted on this device.",
+        type: ToastificationType.error,
+      );
     }
   }
 

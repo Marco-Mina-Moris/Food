@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 
-import '../../features/category_meals/model/meal.dart';
-import '../../features/home/model/response/category2_response.dart';
-import '../../features/home/model/response/restaurants_response.dart';
-import '../../features/meal_details/model/meal_detail_response.dart';
+import 'package:food/features/user/category_meals/model/meal.dart';
+import 'package:food/features/user/home/model/response/category2_response.dart';
+import 'package:food/features/user/home/model/response/restaurants_response.dart';
+import 'package:food/features/user/meal_details/model/meal_detail_response.dart';
 
 // class HomeApi {
 //  final Dio _dio = Dio(

@@ -1,32 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food/features/app_section/app_section.dart';
+import 'package:food/features/user/app_section/app_section.dart';
 import 'package:food/features/auth/viewmodel/auth_cubit.dart';
 import 'package:food/features/auth/view/screens/forgot_password_view.dart';
 import 'package:food/features/auth/view/screens/login_screen_view.dart';
 import 'package:food/features/auth/view/screens/permission_screen_view.dart';
 import 'package:food/features/auth/view/screens/sign_up_screen_view.dart';
 import 'package:food/features/auth/view/screens/verificaton_screen_view.dart';
-import 'package:food/features/cart/presentation/views/my_cart_view.dart';
-import 'package:food/features/cart/presentation/view_model/cart_cubit.dart';
-import 'package:food/features/category_meals/view/screens/category_meals_screen.dart';
-import 'package:food/features/category_meals/view_model/category_meals_cubit.dart';
-import 'package:food/features/food_burgers/view/screens/food_burgers.dart';
-import 'package:food/features/food_details/view/screens/food_details.dart';
-import 'package:food/features/meal_details/view/screens/meal_details_screen.dart';
-import 'package:food/features/meal_details/view_model/model_detail_cubit.dart';
-import 'package:food/features/my_orders/presentation/views/my_orders_view.dart';
-import 'package:food/features/onboarding/onboarding_screen.dart';
-import 'package:food/features/payment/presentation/views/add_new_card_view.dart';
-import 'package:food/features/payment/presentation/views/congratulation_view.dart';
-import 'package:food/features/payment/presentation/views/payment_view.dart';
-import 'package:food/features/profile/presentation/views/add_new_address_view.dart';
-import 'package:food/features/profile/presentation/views/address_view.dart';
-import 'package:food/features/profile/presentation/views/edit_profile_view.dart';
-import 'package:food/features/profile/presentation/views/profile_view.dart';
-import 'package:food/features/restaurant_view/view/screens/restaurant_view.dart';
+import 'package:food/features/user/cart/presentation/views/my_cart_view.dart';
+import 'package:food/features/user/cart/presentation/view_model/cart_cubit.dart';
+import 'package:food/features/user/category_meals/view/screens/category_meals_screen.dart';
+import 'package:food/features/user/category_meals/view_model/category_meals_cubit.dart';
+import 'package:food/features/user/food_burgers/view/screens/food_burgers.dart';
+import 'package:food/features/user/food_details/view/screens/food_details.dart';
+import 'package:food/features/user/meal_details/view/screens/meal_details_screen.dart';
+import 'package:food/features/user/meal_details/view_model/model_detail_cubit.dart';
+import 'package:food/features/user/my_orders/presentation/views/my_orders_view.dart';
+import 'package:food/features/user/onboarding/onboarding_screen.dart';
+import 'package:food/features/user/payment/presentation/views/add_new_card_view.dart';
+import 'package:food/features/user/payment/presentation/views/congratulation_view.dart';
+import 'package:food/features/user/payment/presentation/views/payment_view.dart';
+import 'package:food/features/user/profile/presentation/views/add_new_address_view.dart';
+import 'package:food/features/user/profile/presentation/views/address_view.dart';
+import 'package:food/features/user/profile/presentation/views/edit_profile_view.dart';
+import 'package:food/features/user/profile/presentation/views/profile_view.dart';
+import 'package:food/features/user/restaurant_view/view/screens/restaurant_view.dart';
 import 'package:food/features/splash/splash_screen.dart';
-import 'package:food/features/tracking_order/presentation/views/tracking_order_view.dart';
+import 'package:food/features/user/tracking_order/presentation/views/tracking_order_view.dart';
+import 'package:food/features/user/tracking_order/presentation/view_model/tracking_order_cubit.dart';
+
+import 'package:food/features/chef/view/screens/chef_section.dart';
+import 'package:food/features/chef/view/screens/add_menu_screen.dart';
+import 'package:food/features/chef/view_model/chef_cubit.dart';
 
 class AppRoutes {
   // User Routes
@@ -164,7 +169,12 @@ class AppRoutes {
       case paymentSuccess:
         return _createFadeRoute(const CongratulationView());
       case deliveryTracking:
-        return _createRoute(const TrackingOrderView());
+        return _createRoute(
+          BlocProvider<TrackingOrderCubit>(
+            create: (context) => TrackingOrderCubit()..loadTrackingInfo(),
+            child: const TrackingOrderView(),
+          ),
+        );
 
       // ==================== User Profile Routes ====================
       case myOrders:
@@ -177,6 +187,23 @@ class AppRoutes {
         return _createRoute(const AddressView());
       case addNewAddress:
         return _createSlideRoute(const AddNewAddressView());
+
+      // ==================== Chef Routes ====================
+      case chefDashboard:
+        return _createFadeRoute(
+          BlocProvider<ChefCubit>(
+            create: (context) => ChefCubit()..loadChefData(),
+            child: const ChefSection(),
+          ),
+        );
+      case addMenu:
+        final chefCubit = arguments as ChefCubit;
+        return _createSlideRoute(
+          BlocProvider<ChefCubit>.value(
+            value: chefCubit,
+            child: const AddMenuScreen(),
+          ),
+        );
 
       // ==================== 404 Route ====================
       default:
