@@ -8,7 +8,12 @@ import 'package:food/features/auth/view/widget/auth_layout_widget.dart';
 import 'package:food/features/auth/viewmodel/auth_cubit.dart';
 
 import 'package:food/features/auth/viewmodel/auth_state.dart';
+import 'package:food/features/user/profile/presentation/view_model/profile_cubit.dart';
+import 'package:food/core/dialogs/app_toasts.dart';
+import 'package:toastification/toastification.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:food/core/storage_helper/secure_storage_helper.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -19,15 +24,31 @@ class SignUpScreen extends StatelessWidget {
   final _passwordController = TextEditingController();
   final _rePasswordController = TextEditingController();
 
+  Future<void> _handlePostAuthNavigation(BuildContext context) async {
+    await SecureStorageHelper.setRole('User');
+    final status = await Permission.location.status;
+    if (context.mounted) {
+      if (status.isGranted) {
+        Navigator.pushReplacementNamed(context, '/home-v1');
+      } else {
+        Navigator.pushReplacementNamed(context, '/permission');
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          Navigator.pushReplacementNamed(context, '/permission');
+          context.read<ProfileCubit>().loadProfile();
+          _handlePostAuthNavigation(context);
         } else if (state is AuthFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.message)),
+          AppToast.showToast(
+            context: context,
+            title: "Registration Failed",
+            description: state.message,
+            type: ToastificationType.error,
           );
         }
       },

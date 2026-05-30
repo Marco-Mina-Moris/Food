@@ -9,6 +9,8 @@ import 'package:food/core/utils/validator_functions.dart';
 import 'package:food/features/auth/view/widget/auth_layout_widget.dart';
 import 'package:food/features/auth/viewmodel/auth_cubit.dart';
 import 'package:food/features/auth/viewmodel/auth_state.dart';
+import 'package:food/core/dialogs/app_toasts.dart';
+import 'package:toastification/toastification.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,14 +25,20 @@ class ForgotPasswordScreen extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthPasswordResetSuccess) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.message)));
+          AppToast.showToast(
+            context: context,
+            title: "Success",
+            description: state.message,
+            type: ToastificationType.success,
+          );
           Navigator.pushReplacementNamed(context, '/login');
         } else if (state is AuthFailure) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.message)));
+          AppToast.showToast(
+            context: context,
+            title: "Error",
+            description: state.message,
+            type: ToastificationType.error,
+          );
         }
       },
       builder: (context, state) {
