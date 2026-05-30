@@ -18,7 +18,7 @@ class HomeCubit extends Cubit<HomeState> {
     try {
       //Success
       final response =
-          await HomeApi.getCategories2(); // ده بيرجع CategoryResponse2
+          await HomeApi.getCategories2(); // ╪»┘ç ╪¿┘è╪▒╪¼╪╣ CategoryResponse2
       categories = response.categories ?? [];
       emit(HomeSuccess());
     } catch (e) {
