@@ -68,7 +68,7 @@ class _BuildCategoryState extends State<BuildCategory> {
                   child: Image.network(
                     category.strCategoryThumb ??
                         "https://img.icons8.com/color/96/question-mark.png",
-                    height: 120,
+                    height: 110,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
