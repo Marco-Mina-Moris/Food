@@ -1,170 +1,147 @@
-# 🍕 Food Delivery App
+<p align="center">
+  <img width="100%" alt="Food Delivery Cover" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" />
+</p>
 
-A comprehensive **Food Delivery mobile application** built with **Flutter**, featuring **Firebase Authentication** for user login/signup and **RESTful APIs** for all food ordering operations.  
-The app provides a seamless ordering experience with **modern UI/UX design**, **MVVM Architecture**, and **BLoC + Cubit** for state management.
 
----
+<h1 align="center">Chef Food — شيف فود</h1>
+<h3 align="center">Modern Multi-Role Food Ordering & Delivery Platform</h3>
 
-## 📱 Screenshots
-
-### Authentication
-| Sign Up | Log In | Forgot Password |
-|---------|---------|-----------------|
-| ![Sign Up](screenshots/signup.png) | ![Login](screenshots/login.png) | ![Forgot Password](screenshots/forgot-password.png) |
-
-### Onboarding
-| Free Delivery | Order from Chef | Favorites |
-|---------------|-----------------|-----------|
-| ![Free Delivery](screenshots/onboarding-1.png) | ![Order from Chef](screenshots/onboarding-2.png) | ![Favorites](screenshots/onboarding-3.png) |
-
-### Main Flow
-| Home | Categories | Restaurant |
-|------|------------|------------|
-| ![Home](screenshots/home.png) | ![Categories](screenshots/categories.png) | ![Restaurant](screenshots/restaurant.png) |
-
-### Food & Cart
-| Food Details | Cart | Payment |
-|--------------|------|---------|
-| ![Food](screenshots/food.png) | ![Cart](screenshots/cart.png) | ![Payment](screenshots/payment.png) |
-
-### Orders
-| Track Order | Success | Profile |
-|-------------|---------|---------|
-| ![Track](screenshots/track.png) | ![Success](screenshots/success.png) | ![Profile](screenshots/profile.png) |
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-3.x-blue?logo=flutter"/>
+  <img src="https://img.shields.io/badge/Firebase-Backend-orange?logo=firebase"/>
+  <img src="https://img.shields.io/badge/BLoC%20%2F%20Cubit-State%20Management-purple"/>
+  <img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS-lightgrey"/>
+  <img src="https://img.shields.io/badge/Architecture-MVVM-orange"/>
+</p>
 
 ---
 
-## 🎨 App Interfaces
+## About
 
-The application includes **50+ screens**:
+**Chef Food (شيف فود)** is a premium, comprehensive food ordering and restaurant management mobile application built with Flutter. It connects food lovers with local chefs and restaurants, offering a seamless and beautiful multi-role ordering and dashboard experience.
 
-- 👤 **User Interfaces (40 screens)** → onboarding, authentication, home, search, restaurants, menus, cart, orders, profile  
-- 👨‍🍳 **Chef Interfaces (10 screens)** → dashboard, add food, manage menu, track sales, notifications, reviews  
+> "Your Favorite Dishes, Delivered Fresh."
 
-
----
-
-## ✨ Features
-
-### 🔐 Authentication (Firebase)
-- Email/Password login & registration  
-- Google / Facebook Sign-In  
-- Password reset via email  
-- Secure session handling  
-
-### 🍽️ Core Features (RESTful APIs)
-- Restaurant discovery & categories  
-- Food browsing & detailed menus  
-- Add to cart & checkout process  
-- Order tracking with live updates  
-- Favorites & ratings  
-
-### 💳 Payments
-- Multiple payment options (Cash, Card, Wallets)  
-- Card management  
-- Payment confirmation  
-
-### 👤 Profile
-- Edit personal details  
-- Manage delivery addresses  
-- View past orders  
-- Notification settings  
-
-### 🔔 Notifications
-- Push notifications with **Firebase Cloud Messaging (FCM)**  
+The app features a dual-role dynamic interface: **User Interfaces (40+ screens)** for onboarding, finding dishes, managing cards, and tracking orders, and **Chef Interfaces (10+ screens)** for dashboard sales analytics, managing menus, and fulfilling client requests.
 
 ---
 
-## 🛠️ Tech Stack
+## Features
 
-- **Framework**: Flutter (Dart)  
-- **Architecture**: MVVM  
-- **State Management**: BLoC + Cubit  
-- **Authentication**: Firebase Authentication  
-- **Backend**: RESTful APIs  
-- **Database**: Firebase Firestore / Realtime Database  
-- **Notifications**: Firebase Cloud Messaging (FCM)  
-- **Networking**: Dio HTTP Client  
-- **Storage**: SharedPreferences  
+### 👤 User (Client)
+- Browse restaurants, menus, and food categories (Burgers, Pizza, Dessert, etc.)
+- View meal details, ingredients, calorie info, and ratings
+- Add items to cart with dynamic quantities and options
+- Live order tracking with interactive Google Maps integration
+- Saved favorites and ratings/reviews for recipes
+- Secure multi-address and card management (Visa, MasterCard, PayPal, Cash)
+- Beautiful floating Bottom Navigation Bar with tap scale animations
+- Bilingual support (Arabic 🇪🇬 / English 🇬🇧)
+
+### 👨‍🍳 Chef (Restaurant Owner)
+- Manage restaurant menu and dishes (Add/Edit/Delete food items)
+- View active and pending orders with real-time updates
+- Track sales and analytics on the chef dashboard
+- Share cooking notes and updates with customers
+- Manage profile, payment history, and reviews
+
+### 🔐 Auth
+- Role-based registration and onboarding (User / Chef)
+- Verification code verification (OTP via Pinput)
+- Secure Firebase Authentication (Email/Password, Google Sign-In, Facebook Sign-In)
+- Secure forgot-password email reset flow
 
 ---
 
-## 📂 Project Structure
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | Flutter (Dart) |
+| Backend | Firebase (Auth + Firestore) |
+| State Management | BLoC & Cubit |
+| Local Storage | SharedPreferences |
+| Animations | Animate Do & Flutter Animate |
+| Network Client | Dio |
+| Maps | Google Maps Flutter & Geolocator |
+| Architecture | Feature-based MVVM |
+
+---
+
+## Project Structure
 
 ```
 lib/
- ┣ core/              # Constants, helpers, themes, utils
- ┣ data/              # API services, repositories
- ┣ presentation/
- ┃ ┣ bloc/            # BLoC + Cubit classes
- ┃ ┣ view/            # Screens (UI layer)
- ┃ ┣ viewmodel/       # ViewModels (MVVM)
- ┃ ┗ widgets/         # Reusable widgets
- ┗ main.dart          # Entry point
+├── firebase_options.dart              # Firebase configuration
+├── main.dart                          # App entry point
+├── core/                              # Shared utilities & config
+│   ├── common/
+│   ├── constants/
+│   ├── data/
+│   ├── dialogs/
+│   ├── model/
+│   ├── routes/
+│   ├── storage_helper/
+│   └── utils/
+│
+└── features/                          # Feature modules (MVVM + Cubit)
+    ├── app_section/                   # Main layout & floating Bottom Navigation Bar
+    ├── auth/                          # Login, register, verification & password reset
+    ├── cart/                          # Cart items & checkout management
+    ├── category_meals/                # Meal lists by food category
+    ├── favorite/                      # Favorite items list
+    ├── food_burgers/                  # Burgers feature views
+    ├── food_details/                  # Detailed food items view
+    ├── home/                          # Custom app bar, search bar, categories & recipes
+    ├── meal_details/                  # Recipe detail view, rating, ingredients & cart add
+    ├── my_orders/                     # Active, ongoing, and past order history
+    ├── onboarding/                    # Premium onboarding walkthrough screens
+    ├── payment/                       # Payment options, card adding, success transitions
+    ├── profile/                       # Edit profile, personal info, address management
+    ├── restaurant_view/               # Restaurant details and menu views
+    ├── splash/                        # App splash loader screen
+    └── tracking_order/                # Live map delivery tracking and progress
 ```
 
 ---
 
-## 🚀 Getting Started
+## Database Schema (Firestore Collections)
+
+| Collection | Description |
+|---|---|
+| `Users` | User profiles containing roles (User / Chef), email, personal details, addresses, and timestamps |
+| `restaurants` | Restaurant data, menu items, rating reviews, and owner reference |
+| `meals` | Food recipes/dishes, ingredients list, price, calories, ratings, and category type |
+| `orders` | Placed orders containing client/chef IDs, ordered meals, payment details, order status, and tracking coordinates |
+| `carts` | Cart state for users with quantities, specific restaurant IDs, and total price |
+
+---
+
+## Getting Started
 
 ### Prerequisites
-- Flutter SDK `>=3.7`
-- Android Studio / VSCode
-- Firebase project configured
-- Emulator or device
+- Flutter SDK 3.x
+- Dart SDK
+- Android Studio or VS Code
+- Firebase Project setup
 
 ### Installation
+
 ```bash
-git clone https://github.com/YOUR_USERNAME/food-delivery-app.git
+git clone https://github.com/MARCO-Develper/Food.git
 cd food
 flutter pub get
 flutter run
 ```
 
-### Firebase Setup
-1. Create project at [Firebase Console](https://console.firebase.google.com)  
-2. Add `google-services.json` (Android) & `GoogleService-Info.plist` (iOS)  
-3. Enable authentication methods (Email/Google/Facebook)  
-4. Enable Firestore & FCM  
+---
+
+## Developer
+
+| Name | Role | Contact |
+|---|---|---|
+| **Marco Mina** | Flutter Developer | [GitHub](https://github.com/MARCO-Develper) \| [LinkedIn](https://www.linkedin.com/in/marco-mina-515369262) |
 
 ---
 
-## 🎨 Design System
-
-### Colors
-- Primary → Orange `#FF6B35`  
-- Secondary → Dark Navy `#2D3748`  
-- Background → Light Gray `#F8F9FA`  
-- Success → Green `#48BB78`  
-- Error → Red `#E53E3E`  
-
-### Typography
-- Google Fonts  
-- Clear hierarchy (titles, subtitles, body text)  
-
-### UX Principles
-- Smooth animations  
-- Responsive layouts (phones & tablets)  
-- Accessible design patterns  
-
----
-
-## 🔮 Future Enhancements
-- Multi-language support (Arabic/English)  
-- Chef Dashboard (advanced analytics)  
-- Loyalty rewards system  
-- Group ordering  
-- AI-powered food recommendations  
-- AR Menu preview  
-
----
-
-## 👤 Author
-- **Marco Mina Moris**  
-  📧 [marcominamories@gmail.com](mailto:marcominamories@gmail.com)  
-  🔗 [LinkedIn](https://www.linkedin.com/in/marco-mina-515369262)  
-  💻 [GitHub](https://github.com/MARCO-Develper)  
-
----
-
-**Built with Flutter 💙 | Powered by Firebase 🔥 | Driven by RESTful APIs ⚡**
+<p align="center">Made with ❤️ by Marco Mina — 2026</p>
