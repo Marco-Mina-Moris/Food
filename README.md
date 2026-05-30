@@ -18,7 +18,7 @@
 
 ## About
 
-**Chef Food (شيف فود)** is a premium, comprehensive food ordering and restaurant management mobile application built with Flutter. It connects food lovers with local chefs and restaurants, offering a seamless and beautiful multi-role ordering and dashboard experience.
+**Food Delivery (توصيل الطعام)** is a premium, comprehensive food ordering and restaurant management mobile application built with Flutter. It connects food lovers with local chefs and restaurants, offering a seamless and beautiful multi-role ordering and dashboard experience.
 
 > "Your Favorite Dishes, Delivered Fresh."
 
