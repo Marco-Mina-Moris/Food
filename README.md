@@ -28,7 +28,7 @@ The app features a dual-role dynamic interface: **User Interfaces (40+ screens)*
 
 ## Features
 
-### 👤 User (Client)
+### User (Client)
 - Browse restaurants, menus, and food categories (Burgers, Pizza, Dessert, etc.)
 - View meal details, ingredients, calorie info, and ratings
 - Add items to cart with dynamic quantities and options
@@ -38,14 +38,14 @@ The app features a dual-role dynamic interface: **User Interfaces (40+ screens)*
 - Beautiful floating Bottom Navigation Bar with tap scale animations
 - Bilingual support (Arabic 🇪🇬 / English 🇬🇧)
 
-### 👨‍🍳 Chef (Restaurant Owner)
+### Chef (Restaurant Owner)
 - Manage restaurant menu and dishes (Add/Edit/Delete food items)
 - View active and pending orders with real-time updates
 - Track sales and analytics on the chef dashboard
 - Share cooking notes and updates with customers
 - Manage profile, payment history, and reviews
 
-### 🔐 Auth
+### Auth
 - Role-based registration and onboarding (User / Chef)
 - Verification code verification (OTP via Pinput)
 - Secure Firebase Authentication (Email/Password, Google Sign-In, Facebook Sign-In)
